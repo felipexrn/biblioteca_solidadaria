@@ -1,6 +1,6 @@
 using System;
 using Modelo;
-namespace visao {
+namespace Visao {
   class Biblioteca {
     public static void Main () {}
     public static void Menu() {}
