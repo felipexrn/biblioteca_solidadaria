@@ -11,11 +11,13 @@ class Program {
   public static void ExemplarAtualizar() {}
   public static void ExemplarApagar() {}
   public static void ExemplarListar() {}
+  public static void LocacaoInserir() {}
+  public static void LocacaoAtualizar() {}
+  public static void LocacaoApagar() {}
+  public static void LocacaoListar() {}
   public static void LocadorInserir() {}
   public static void LocadorAtualizar() {}
   public static void LocadorApagar() {}
   public static void LocadorListar() {}
-  public static void Alugar() {}
-  public static void Devolver() {}
   
 }
