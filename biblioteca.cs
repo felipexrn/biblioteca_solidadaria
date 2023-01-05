@@ -1,6 +1,6 @@
 using System;
 using Modelo;
-class Program {
+class Biblioteca {
   public static void Main () {}
   public static void Menu() {}
   public static void LivroInserir() {}
