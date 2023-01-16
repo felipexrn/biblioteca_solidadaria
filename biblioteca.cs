@@ -2,7 +2,7 @@ using System;
 using Modelo;
 namespace Visao {
   class Biblioteca {
-    public static void Main () {}
+    public static void Main() {}
     public static void Menu() {}
     public static void LivroInserir() {}
     public static void LivroAtualizar() {}
