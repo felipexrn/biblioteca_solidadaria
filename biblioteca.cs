@@ -16,6 +16,7 @@ namespace Visao {
     public static void LocacaoAtualizar() {}
     public static void LocacaoApagar() {}
     public static void LocacaoListar() {}
+    public static void Devolucao() {}
     public static void LocadorInserir() {}
     public static void LocadorAtualizar() {}
     public static void LocadorApagar() {}
