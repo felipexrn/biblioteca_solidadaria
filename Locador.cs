@@ -1,6 +1,8 @@
 using System;
 namespace Modelo {
   public class Locador {
-    //teste
+    public int Id{get,set}
+    public string Nome{get,set}
+    public string Telefone{get,set}
   }
 }
