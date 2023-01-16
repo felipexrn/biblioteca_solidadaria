@@ -6,5 +6,6 @@ namespace Modelo {
     public int IdLivro {get, set} /*implementar*/
     public Exemplar() {}
     public Exemplar(bool a, int idLivro) {/*implementar*/}
+    public override string ToString() {/*implementar*/}
   }
 }
