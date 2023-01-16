@@ -14,4 +14,11 @@ namespace Modelo {
       return this.Titulo.CompareTo(l2.Titulo);
     }
   }
+  public class CompAutor : IComparer {
+    public int Compare(object obj1, object obj2) {
+      Livro l1 (Livro) = obj1;
+      Livro l2 (Livro) = obj2;
+      return l1.Autor.CompareTo(l2.Autor);
+    }
+  }
 }
