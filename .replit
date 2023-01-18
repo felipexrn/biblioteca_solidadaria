@@ -1,7 +1,7 @@
-run = "csc biblioteca.cs; mono biblioteca.exe"
+run = "csc Biblioteca.cs; mono Biblioteca.exe"
 entrypoint = "main.cs"
 
-hidden = ["bin", "obj", "biblioteca.exe"]
+hidden = ["bin", "obj", "Biblioteca.exe"]
 
 [env]
 DOTNET_NOLOGO = "1"
