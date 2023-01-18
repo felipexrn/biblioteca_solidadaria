@@ -1,5 +1,5 @@
-run = "csc Biblioteca.cs; mono Biblioteca.exe"
-entrypoint = "main.cs"
+run = "csc Biblioteca.cs Livro.cs Exemplar.cs Locacao.cs Locador.cs NLivro.cs NExemplar.cs NLocacao.cs NLocador.cs -out:Biblioteca.exe; mono Biblioteca.exe"
+entrypoint = "Biblioteca.cs"
 
 hidden = ["bin", "obj", "Biblioteca.exe"]
 
