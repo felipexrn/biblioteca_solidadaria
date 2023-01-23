@@ -14,6 +14,7 @@ namespace Negocio {
       /*implementar*/
     }
     public static List<Exemplar> ExemplarListar() {
+      return exemplares;
       /*implementar*/
     }
   }

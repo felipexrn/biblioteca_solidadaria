@@ -7,13 +7,14 @@ namespace Negocio {
     public static void LivroInserir(string t, string a, string d, string i) {
       /*implementar*/
     }
-    public static void LivroAtualizar(int idLivro, string t, string a, string d, string i)) {
+    public static void LivroAtualizar(int idLivro, string t, string a, string d, string i) {
       /*implementar*/
     }
     public static void LivroExcluir(int id) {
       /*implementar*/
     }
     public static List<Livro> LivroListar() {
+      return livros;
       /*implementar*/
     }
   }
