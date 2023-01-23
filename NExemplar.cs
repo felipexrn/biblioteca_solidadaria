@@ -4,9 +4,17 @@ using System.Collections.Generic;
 namespace Negocio {
   public class NExemplar {
     private static List<Exemplar> exemplares;
-    public static void ExemplarInserir();
-    public static void ExemplarAtualizar();
-    public static void ExemplarExcluir();
-    public static void ExemplarListar();
+    public static void ExemplarInserir(int idLivro, bool a) {
+      /*implementar*/
+    }
+    public static void ExemplarAtualizar(int idExemplar, int idLivro, bool a) {
+      /*implementar*/
+    }
+    public static void ExemplarExcluir(int idExemplar) {
+      /*implementar*/
+    }
+    public static List<Exemplar> ExemplarListar() {
+      /*implementar*/
+    }
   }
 }
