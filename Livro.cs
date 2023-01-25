@@ -8,8 +8,18 @@ namespace Modelo {
     public string Descricao {get; set;} /*implementar*/
     public string Isbn {get; set;} /*implementar*/
     public Livro() {}
+    public Livro(int id, string t, string a, string d, string i) {
+      Id = id;
+      Titulo = t;
+      Autor = a;
+      Descricao = d;
+      Isbn = i;
+    }
     public Livro(string t, string a, string d, string i) {
-      /*implementar*/
+      Titulo = t;
+      Autor = a;
+      Descricao = d;
+      Isbn = i;
     }
     public override string ToString() {
       return $"Id: {this.Id}\nTitulo: {this.Titulo}\nAutor: {this.Autor}\nDescricao: {this.Descricao}\nIsbn: {this.Isbn}";
