@@ -1,16 +1,21 @@
 using System;
 using Modelo;
+using Negocio;
 namespace Visao {
   class Biblioteca {
     public static void Main() {
-      Livro l1 = new Livro {Id = 1, Titulo = "O sono dos justos", Autor = "Um Aluno exausto", Descricao = "Nada há nesse livro, pois o autor só estuda e trabalha...", Isbn = "2012548615168135168"};
-      Console.WriteLine(l1.ToString());
       
-      Exemplar e1 = new Exemplar {Id = 2, Alugado = true, IdLivro = 1};
-      Console.WriteLine(e1.ToString());
+      LivroInserir();
+
     }
     public static void Menu() {}
-    public static void LivroInserir() {}
+    public static void LivroInserir() {
+      Livro l1 = new Livro {Titulo = "O sono dos justos", Autor = "Um Aluno exausto", Descricao = "Nada há nesse livro, pois o autor só estuda e trabalha...", Isbn = "2012548615168135168"};
+
+      NLivro.LivroInserir(l1);
+
+      Console.WriteLine(l1.ToString());
+    }
     public static void LivroAtualizar() {}
     public static void LivroApagar() {}
     public static void LivroListar() {}

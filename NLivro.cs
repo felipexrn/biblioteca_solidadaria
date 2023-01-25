@@ -1,12 +1,23 @@
 using System;
 using Modelo;
+using System.Linq;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
 namespace Negocio {
   public class NLivro {
     private static List<Livro> livros;
-    public static void LivroInserir(string t, string a, string d, string i) {
+    public static void LivroInserir(Livro l) {
+      LivroAbrirArquivo();
+      int id;
+      if (livros.Count == 0) id = 1;
+      else {
+        id = livros.Max(x => x.Id);
+        id++;
+      }
+      l.Id = id;
+      livros.Add(l);
+      LivroSalvarArquivo();
       /*implementar*/
     }
     public static void LivroAtualizar(int idLivro, string t, string a, string d, string i) {
@@ -32,7 +43,10 @@ namespace Negocio {
       if (stream != null) stream.Close();
     }
     public static void LivroSalvarArquivo() {
-      /*implementar*/
+      XmlSerializer xml = new XmlSerializer(typeof(List<Livro>));
+      StreamWriter stream = new StreamWriter("./livros.xml", false);
+      xml.Serialize(stream, livros);
+      stream.Close();
     }
   }
 }

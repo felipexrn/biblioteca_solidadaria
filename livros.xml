@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLivro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Livro>
+    <Id>1</Id>
+    <Titulo>O sono dos justos</Titulo>
+    <Autor>Um Aluno exausto</Autor>
+    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
+    <Isbn>2012548615168135168</Isbn>
+  </Livro>
+  <Livro>
+    <Id>2</Id>
+    <Titulo>O sono dos justos</Titulo>
+    <Autor>Um Aluno exausto</Autor>
+    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
+    <Isbn>2012548615168135168</Isbn>
+  </Livro>
+  <Livro>
+    <Id>3</Id>
+    <Titulo>O sono dos justos</Titulo>
+    <Autor>Um Aluno exausto</Autor>
+    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
+    <Isbn>2012548615168135168</Isbn>
+  </Livro>
+</ArrayOfLivro>
