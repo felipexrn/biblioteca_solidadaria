@@ -1,6 +1,8 @@
 using System;
 using Modelo;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using System.IO;
 namespace Negocio {
   public class NExemplar {
     private static List<Exemplar> exemplares;
@@ -15,6 +17,12 @@ namespace Negocio {
     }
     public static List<Exemplar> ExemplarListar() {
       return exemplares;
+      /*implementar*/
+    }
+    public static void ExemplarAbrirArquivo() {
+      /*implementar*/
+    }
+    public static void ExemplarSalvarArquivo() {
       /*implementar*/
     }
   }
