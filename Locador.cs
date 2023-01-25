@@ -14,7 +14,7 @@ namespace Modelo {
       Nome = n;
       Telefone = t;
     }
-    public overside string ToString(){
+    public override string ToString(){
       return $"Id: {this.Id}\nNome: {this.Nome}\nTelefone: {this.Telefone}";
     }
   }
