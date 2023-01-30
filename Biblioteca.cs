@@ -6,7 +6,7 @@ namespace Visao {
     public static void Main() {
       int option = Menu();
       LivroInserir();
-      ExemplarInserir();
+      //ExemplarInserir();
 
     }
     public static int Menu() {
@@ -23,12 +23,15 @@ namespace Visao {
       );
       op = int.Parse(Console.ReadLine());
       switch(op) {
+        case 0: op = 0; break;
         case 1: op = 1; break;
         case 2: op = 2; break;
         case 3: op = 3; break;
         case 4: op = 4; break;
       }
-      Console.WriteLine(
+      if (op == 0) return op;
+      if (op == 1) {
+        Console.WriteLine(
         "00 = Sair do programa\n\n" +
         "01 = Voltar para o menu anterior\n\n" +
         "---------------------\n" +
@@ -38,7 +41,22 @@ namespace Visao {
         "03 - Listar livros\n" +
         "04 - Atualizar livro\n" +
         "05 - Excluir livro\n"
-      );
+        );
+        op = int.Parse(Console.ReadLine());
+        switch(op) {
+        case 0: return 0;
+          case 1: op = -1; break;
+          case 2: return 1;
+          case 3: return 2;
+          case 4: return 3;
+          case 4: return 4;
+        }
+        if (op == -1) {
+          Console.WriteLine("clear");
+          
+        }
+      }
+      
       return op;
     }
     public static void LivroInserir() {
