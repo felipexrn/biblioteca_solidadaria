@@ -42,8 +42,15 @@ namespace Negocio {
         LivroSalvarArquivo();
       }
     }
-    public static void LivroExcluir(int id) {
-      /*implementar*/
+    public static void LivroExcluir(Livro l) {
+      LivroAbrirArquivo();
+      Livro obj = LivroListar(l.Id);
+      if (obj == null) 
+        throw new ArgumentOutOfRangeException("id inválido");
+      else {
+        livros.Remove(obj);
+        LivroSalvarArquivo();
+      }
     }
     
     public static void LivroAbrirArquivo() {

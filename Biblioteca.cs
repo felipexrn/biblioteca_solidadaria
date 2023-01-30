@@ -6,24 +6,29 @@ namespace Visao {
     public static void Main() {
       int op = Menu();
       while(op!=0) {
-        switch(op) {
-          case 1: LivroInserir(); break;
-          case 2: LivroListar(); break;
-          case 3: LivroAtualizar(); break;
-          case 4: LivroApagar(); break;
-          case 5: ExemplarInserir(); break;
-          case 6: ExemplarListar(); break;
-          case 7: ExemplarAtualizar(); break;
-          case 8: ExemplarApagar(); break;
-          case 9: LocacaoInserir(); break;
-          case 10: LocacaoListar(); break;
-          case 11: LocacaoAtualizar(); break;
-          case 12: LocacaoApagar(); break;
-          case 13: LocadorInserir(); break;
-          case 14: LocadorListar(); break;
-          case 15: LocadorAtualizar(); break;
-          case 16: LocadorApagar(); break;
-          case 17: Devolucao(); break;
+        try {
+          switch(op) {
+            case 1: LivroInserir(); break;
+            case 2: LivroListar(); break;
+            case 3: LivroAtualizar(); break;
+            case 4: LivroApagar(); break;
+            case 5: ExemplarInserir(); break;
+            case 6: ExemplarListar(); break;
+            case 7: ExemplarAtualizar(); break;
+            case 8: ExemplarApagar(); break;
+            case 9: LocacaoInserir(); break;
+            case 10: LocacaoListar(); break;
+            case 11: LocacaoAtualizar(); break;
+            case 12: LocacaoApagar(); break;
+            case 13: LocadorInserir(); break;
+            case 14: LocadorListar(); break;
+            case 15: LocadorAtualizar(); break;
+            case 16: LocadorApagar(); break;
+            case 17: Devolucao(); break;
+          }
+        }
+        catch (Exception erro) {
+          Console.WriteLine(erro.Message + "\n");
         }
         op = Menu();
       }
@@ -134,7 +139,12 @@ namespace Visao {
       NLivro.LivroAtualizar(livro);
       Console.WriteLine("Livro atualizado\n");
     }
-    public static void LivroApagar() {}
+    public static void LivroApagar() {
+      Console.WriteLine("Informe o Id do livro a ser excluído");
+      int id = int.Parse(Console.ReadLine());
+      Livro livro = new Livro {Id = id};
+      NLivro.LivroExcluir(livro);
+    }
     public static void ExemplarInserir() {}
     public static void ExemplarListar() {}
     public static void ExemplarAtualizar() {}
