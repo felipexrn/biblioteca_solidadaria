@@ -1,6 +1,6 @@
 using System;
 namespace Modelo {
-  public class Locador {
+  public class Locador: IComparable {
     public int Id{get;set;}
     public string Nome{get;set;}
     public string Telefone{get;set;}
@@ -16,6 +16,10 @@ namespace Modelo {
     }
     public override string ToString(){
       return $"Id: {this.Id}\nNome: {this.Nome}\nTelefone: {this.Telefone}";
+    }
+    public int CompareTo(object obj){
+      Locador l1 = (Locador) obj;
+      return this.Nome.CompareTo(l1.Nome);
     }
   }
 }
