@@ -36,4 +36,13 @@
     <Descricao>0</Descricao>
     <Isbn>0</Isbn>
   </Livro>
+  <Livro>
+    <Id>16</Id>
+    <Titulo>1</Titulo>
+    <Volume>1;4;1R</Volume>
+    <Edicao>1;6;1R</Edicao>
+    <Autor>1;8;1R</Autor>
+    <Descricao>1</Descricao>
+    <Isbn>1</Isbn>
+  </Livro>
 </ArrayOfLivro>
