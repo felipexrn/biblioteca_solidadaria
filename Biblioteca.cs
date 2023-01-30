@@ -23,9 +23,23 @@ namespace Visao {
       );
       op = int.Parse(Console.ReadLine());
       switch(op) {
-        case 1:
+        case 1: op = 1; break;
+        case 2: op = 2; break;
+        case 3: op = 3; break;
+        case 4: op = 4; break;
       }
-      return 
+      Console.WriteLine(
+        "00 = Sair do programa\n\n" +
+        "01 = Voltar para o menu anterior\n\n" +
+        "---------------------\n" +
+        "     Categorias\n\n" + 
+        "---------------------\n" +
+        "02 - Inserir livro\n" +
+        "03 - Listar livros\n" +
+        "04 - Atualizar livro\n" +
+        "05 - Excluir livro\n"
+      );
+      return op;
     }
     public static void LivroInserir() {
       string t, v, e, a, d, i;
@@ -45,7 +59,7 @@ namespace Visao {
 
       NLivro.LivroInserir(l1);
 
-      Console.WriteLine(l1.ToString());
+      Console.WriteLine("Livro inserido");
     }
     public static void LivroAtualizar() {}
     public static void LivroApagar() {}
