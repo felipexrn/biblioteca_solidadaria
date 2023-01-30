@@ -42,13 +42,14 @@ namespace Visao {
         "---------------------\n" +
         "     Categorias\n" + 
         "---------------------\n" +
-        "01 - Livros\n" +
-        "02 - Exemplares\n" +
-        "03 - Locação\n" +
-        "04 - Locadores"
+        "01 = Livros\n" +
+        "02 = Exemplares\n" +
+        "03 = Locação\n" +
+        "04 = Locadores\n" + 
+        "05 = Devolução"
       );
       op = int.Parse(Console.ReadLine());
-      if (op > 4 || op < 0) {
+      if (op > 4 || op < 0 && op != 17) {
         Console.Clear();
         Console.WriteLine("Valor escolhido é inválido\n");
         op = Menu();
@@ -87,10 +88,10 @@ namespace Visao {
         "---------------------\n" +
         "Categoria  Exemplares\n" + 
         "---------------------\n" +
-        "02 - Inserir exemplar\n" +
-        "03 - Listar exemplar\n" +
-        "04 - Atualizar exemplar\n" +
-        "05 - Excluir exemplar"
+        "02 = Inserir exemplar\n" +
+        "03 = Listar exemplar\n" +
+        "04 = Atualizar exemplar\n" +
+        "05 = Excluir exemplar"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -106,9 +107,55 @@ namespace Visao {
         }
       }
       if (op == 3) {
-        
+        Console.WriteLine(
+        "00 = Sair do programa\n" +
+        "01 = Voltar para o menu anterior\n" +
+        "---------------------\n" +
+        "  Categoria Locação\n" + 
+        "---------------------\n" +
+        "02 = Inserir locação\n" +
+        "03 = Listar locação\n" +
+        "04 = Atualizar locação\n" +
+        "05 = Excluir locação"
+        );
+        op = int.Parse(Console.ReadLine());
+        if (op == 0) return 0;
+        if (op == 1) {
+          Console.Clear();
+          op = Menu();
+        }
+        switch(op) {
+        case 2: return 9;
+        case 3: return 10;
+        case 4: return 11;
+        case 5: return 12;
+        }
       }
-      if (op == 4) {}
+      if (op == 4) {
+        Console.WriteLine(
+        "00 = Sair do programa\n" +
+        "01 = Voltar para o menu anterior\n" +
+        "---------------------\n" +
+        "  Categoria Locador\n" + 
+        "---------------------\n" +
+        "02 = Inserir locador\n" +
+        "03 = Listar locador\n" +
+        "04 = Atualizar locador\n" +
+        "05 = Excluir locador"
+        );
+        op = int.Parse(Console.ReadLine());
+        if (op == 0) return 0;
+        if (op == 1) {
+          Console.Clear();
+          op = Menu();
+        }
+        switch(op) {
+        case 2: return 13;
+        case 3: return 14;
+        case 4: return 15;
+        case 5: return 16;
+        }
+      }
       return op;
     }
     public static void LivroInserir() {
