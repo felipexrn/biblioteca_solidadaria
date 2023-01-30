@@ -10,20 +10,20 @@ namespace Visao {
           case 1: LivroInserir(); break;
           case 2: LivroListar(); break;
           case 3: LivroAtualizar(); break;
-          case 4: LiuvroApagar(); break;
+          case 4: LivroApagar(); break;
           case 5: ExemplarInserir(); break;
           case 6: ExemplarListar(); break;
           case 7: ExemplarAtualizar(); break;
           case 8: ExemplarApagar(); break;
-          case 9: ExemplarDeveolver(); break;
-          case 10: LocacaoInserir(); break;
-          case 11: LocacaoListar(); break;
-          case 12: LocacaoAtualizar(); break;
-          case 13: LocacaoApagar(); break;
-          case 14: LocadorInserir(); break;
-          case 15: LocadorListar(); break;
-          case 16: LocadorAtualizar(); break;
-          case 17: LocadorApagar(); break;
+          case 9: LocacaoInserir(); break;
+          case 10: LocacaoListar(); break;
+          case 11: LocacaoAtualizar(); break;
+          case 12: LocacaoApagar(); break;
+          case 13: LocadorInserir(); break;
+          case 14: LocadorListar(); break;
+          case 15: LocadorAtualizar(); break;
+          case 16: LocadorApagar(); break;
+          case 17: Devolucao(); break;
         }
         op = Menu();
       }
@@ -69,7 +69,7 @@ namespace Visao {
           case 2: return 1;
           case 3: return 2;
           case 4: return 3;
-          case 4: return 4;
+          case 5: return 4;
         }
         if (op == -1) {
           Console.WriteLine("clear");
@@ -107,7 +107,6 @@ namespace Visao {
     public static void ExemplarListar() {}
     public static void ExemplarAtualizar() {}
     public static void ExemplarApagar() {}
-    public static void ExemplarDevolver() {}
     public static void LocacaoInserir() {}
     public static void LocacaoListar() {}
     public static void LocacaoAtualizar() {}
@@ -116,6 +115,7 @@ namespace Visao {
     public static void LocadorListar() {}
     public static void LocadorAtualizar() {}
     public static void LocadorApagar() {}
+    public static void Devolucao() {}
     
   }
 }
