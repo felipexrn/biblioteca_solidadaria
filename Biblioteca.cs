@@ -8,10 +8,10 @@ namespace Visao {
       while(op!=0) {
         try {
           switch(op) {
-            case 1: LivroInserir(); break;
-            case 2: LivroListar(); break;
-            case 3: LivroAtualizar(); break;
-            case 4: LivroApagar(); break;
+            case 1: LivroInserir(); break; // Implementado
+            case 2: LivroListar(); break;  // Implementado
+            case 3: LivroAtualizar(); break;  // Implementado
+            case 4: LivroApagar(); break;  // Implementado
             case 5: ExemplarInserir(); break;
             case 6: ExemplarListar(); break;
             case 7: ExemplarAtualizar(); break;
@@ -80,8 +80,34 @@ namespace Visao {
         case 5: return 4;
         }
       }
-      if (op == 2) {}
-      if (op == 3) {}
+      if (op == 2) {
+        Console.WriteLine(
+        "00 = Sair do programa\n" +
+        "01 = Voltar para o menu anterior\n" +
+        "---------------------\n" +
+        "Categoria  Exemplares\n" + 
+        "---------------------\n" +
+        "02 - Inserir exemplar\n" +
+        "03 - Listar exemplar\n" +
+        "04 - Atualizar exemplar\n" +
+        "05 - Excluir exemplar"
+        );
+        op = int.Parse(Console.ReadLine());
+        if (op == 0) return 0;
+        if (op == 1) {
+          Console.Clear();
+          op = Menu();
+        }
+        switch(op) {
+        case 2: return 5;
+        case 3: return 6;
+        case 4: return 7;
+        case 5: return 8;
+        }
+      }
+      if (op == 3) {
+        
+      }
       if (op == 4) {}
       return op;
     }
@@ -140,10 +166,20 @@ namespace Visao {
       Console.WriteLine("Livro atualizado\n");
     }
     public static void LivroApagar() {
+      Console.Clear();
       Console.WriteLine("Informe o Id do livro a ser excluído");
       int id = int.Parse(Console.ReadLine());
+      Console.Clear();
+      Console.WriteLine("Tem certeza que deseja excluir o livro (s/n)?");
       Livro livro = new Livro {Id = id};
-      NLivro.LivroExcluir(livro);
+      Console.WriteLine(NLivro.LivroListar(id));
+      string ans = Console.ReadLine();
+      Console.Clear();
+      if (ans == "n") Console.WriteLine("Exclusão cancelada");
+      if (ans == "s") {
+        NLivro.LivroExcluir(livro);
+        Console.WriteLine("Livro excluído");
+      }
     }
     public static void ExemplarInserir() {}
     public static void ExemplarListar() {}
