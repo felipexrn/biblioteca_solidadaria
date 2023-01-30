@@ -69,10 +69,10 @@ namespace Visao {
           op = Menu();
         }
         switch(op) {
-          case 2: op = 1; break;
-          case 3: op = 2; break;
-          case 4: op = 3; break;
-          case 5: op = 4; break;
+        case 2: return 1;
+        case 3: return 2;
+        case 4: return 3;
+        case 5: return 4;
         }
       }
       if (op == 2) {}
@@ -99,12 +99,41 @@ namespace Visao {
       i = Console.ReadLine();
       Console.Clear();
       
-      Livro l1 = new Livro {Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
-      NLivro.LivroInserir(l1);
+      Livro livro = new Livro {Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
+      NLivro.LivroInserir(livro);
       Console.WriteLine("Livro inserido\n");
     }
-    public static void LivroListar() {}
-    public static void LivroAtualizar() {}
+    public static void LivroListar() {
+      Console.Clear();
+      foreach (Livro livro in NLivro.LivroListar()) 
+        Console.WriteLine(livro + "\n");  
+    }
+    public static void LivroAtualizar() {
+      
+      int id;
+      string t, v, e, a, d, i;
+      
+      Console.Clear();
+      Console.WriteLine("Digite o id do livro:");
+      id = int.Parse(Console.ReadLine());
+      Console.WriteLine("Digite o título do livro:");
+      t = Console.ReadLine();
+      Console.WriteLine("Digite o volume do livro:");
+      v = Console.ReadLine();
+      Console.WriteLine("Digite a edição do livro:");
+      e = Console.ReadLine();
+      Console.WriteLine("Digite o autor do livro:");
+      a = Console.ReadLine();
+      Console.WriteLine("Digite a descrição do livro:");
+      d = Console.ReadLine();
+      Console.WriteLine("Digite o ISBN do livro:");
+      i = Console.ReadLine();
+      Console.Clear();
+      
+      Livro livro = new Livro {Id = id, Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
+      NLivro.LivroAtualizar(livro);
+      Console.WriteLine("Livro atualizado\n");
+    }
     public static void LivroApagar() {}
     public static void ExemplarInserir() {}
     public static void ExemplarListar() {}

@@ -38,11 +38,11 @@
   </Livro>
   <Livro>
     <Id>16</Id>
-    <Titulo>1</Titulo>
-    <Volume>1;4;1R</Volume>
-    <Edicao>1;6;1R</Edicao>
-    <Autor>1;8;1R</Autor>
-    <Descricao>1</Descricao>
-    <Isbn>1</Isbn>
+    <Titulo>As Quatro Rainhas Mortas</Titulo>
+    <Volume>1</Volume>
+    <Edicao>3</Edicao>
+    <Autor>Astrid Scholte</Autor>
+    <Descricao>Keralie Corrington tem apenas dezassete anos e parece inofensiva mas, na verdade, é uma mentirosa e uma das ladras mais habilidosas de Quadara. Varin, por outro lado, é um cidadão íntegro da região mais desenvolvida de Quadara, Eonia. Os dois conhecem-se quando ela lhe rouba um objeto muito importante, colocando a vida dele em perigo.</Descricao>
+    <Isbn>9789892348834</Isbn>
   </Livro>
 </ArrayOfLivro>

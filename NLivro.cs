@@ -18,18 +18,34 @@ namespace Negocio {
       l.Id = id;
       livros.Add(l);
       LivroSalvarArquivo();
-      /*implementar*/
     }
-    public static void LivroAtualizar(int idLivro, string t, string a, string d, string i) {
-      /*implementar*/
+    public static List<Livro> LivroListar() {
+      LivroAbrirArquivo();
+      return livros;
+    }
+    public static Livro LivroListar(int id) {
+      LivroAbrirArquivo();
+      return livros.Where(x => x.Id == id).SingleOrDefault();
+    }
+    public static void LivroAtualizar(Livro l) {
+      LivroAbrirArquivo();
+      Livro obj = LivroListar(l.Id);
+      if (obj == null) 
+        throw new ArgumentOutOfRangeException("id inválido");
+      else {
+        obj.Titulo = l.Titulo;
+        obj.Volume = l.Volume;
+        obj.Edicao = l.Edicao;
+        obj.Autor = l.Autor;
+        obj.Descricao = l.Descricao;
+        obj.Isbn = l.Isbn;
+        LivroSalvarArquivo();
+      }
     }
     public static void LivroExcluir(int id) {
       /*implementar*/
     }
-    public static List<Livro> LivroListar() {
-      return livros;
-      /*implementar*/
-    }
+    
     public static void LivroAbrirArquivo() {
       XmlSerializer xml = new XmlSerializer(typeof(List<Livro>));
       StreamReader stream = null;
