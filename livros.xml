@@ -3,85 +3,37 @@
   <Livro>
     <Id>1</Id>
     <Titulo>O sono dos justos</Titulo>
+    <Volume>Só Deus sabe</Volume>
+    <Edicao>-1</Edicao>
     <Autor>Um Aluno exausto</Autor>
     <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
     <Isbn>2012548615168135168</Isbn>
   </Livro>
   <Livro>
-    <Id>2</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
+    <Id>13</Id>
+    <Titulo>O Senhor dos Anéis</Titulo>
+    <Volume>1</Volume>
+    <Edicao>2</Edicao>
+    <Autor>J. R. R. Tolkien</Autor>
+    <Descricao>Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal.</Descricao>
+    <Isbn>9788845292613</Isbn>
   </Livro>
   <Livro>
-    <Id>3</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
+    <Id>14</Id>
+    <Titulo>Avatar, A lenda de Aang</Titulo>
+    <Volume>Único</Volume>
+    <Edicao>5</Edicao>
+    <Autor>Michael Dante DiMartino, Bryan Konietzko, Aaron Ehasz, John O'Bryan</Autor>
+    <Descricao>Os irmãos Katara e Sokka acordam o jovem Aang de uma longa hibernação e descobrem que ele é um Avatar, com poderes que podem derrotar a Nação do Fogo.</Descricao>
+    <Isbn>0123456789876543210</Isbn>
   </Livro>
   <Livro>
-    <Id>4</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>5</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>6</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>7</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>8</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>9</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>10</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>11</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
-  </Livro>
-  <Livro>
-    <Id>12</Id>
-    <Titulo>O sono dos justos</Titulo>
-    <Autor>Um Aluno exausto</Autor>
-    <Descricao>Nada há nesse livro, pois o autor só estuda e trabalha...</Descricao>
-    <Isbn>2012548615168135168</Isbn>
+    <Id>15</Id>
+    <Titulo>0</Titulo>
+    <Volume>0</Volume>
+    <Edicao>0</Edicao>
+    <Autor>0</Autor>
+    <Descricao>0</Descricao>
+    <Isbn>0</Isbn>
   </Livro>
 </ArrayOfLivro>

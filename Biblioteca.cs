@@ -27,78 +27,81 @@ namespace Visao {
         }
         op = Menu();
       }
+      Console.Clear();
       Console.WriteLine("Programa encerrado");
     }
     public static int Menu() {
       int op;
       Console.WriteLine(
-        "00 = Sair do programa\n\n" +
+        "00 = Sair do programa\n" +
         "---------------------\n" +
-        "     Categorias\n\n" + 
+        "     Categorias\n" + 
         "---------------------\n" +
         "01 - Livros\n" +
         "02 - Exemplares\n" +
         "03 - Locação\n" +
-        "04 - Locadores\n"
+        "04 - Locadores"
       );
       op = int.Parse(Console.ReadLine());
-      switch(op) {
-        case 0: op = 0; break;
-        case 1: op = 1; break;
-        case 2: op = 2; break;
-        case 3: op = 3; break;
-        case 4: op = 4; break;
+      if (op > 4 || op < 0) {
+        Console.Clear();
+        Console.WriteLine("Valor escolhido é inválido\n");
+        op = Menu();
       }
+      Console.Clear();
       if (op == 0) return op;
       if (op == 1) {
         Console.WriteLine(
-        "00 = Sair do programa\n\n" +
-        "01 = Voltar para o menu anterior\n\n" +
+        "00 = Sair do programa\n" +
+        "01 = Voltar para o menu anterior\n" +
         "---------------------\n" +
-        "     Categorias\n\n" + 
+        "  Categoria  Livros\n" + 
         "---------------------\n" +
         "02 - Inserir livro\n" +
         "03 - Listar livros\n" +
         "04 - Atualizar livro\n" +
-        "05 - Excluir livro\n"
+        "05 - Excluir livro"
         );
         op = int.Parse(Console.ReadLine());
-        switch(op) {
-          case 0: return 0;
-          case 1: op = -1; break;
-          case 2: return 1;
-          case 3: return 2;
-          case 4: return 3;
-          case 5: return 4;
+        if (op == 0) return 0;
+        if (op == 1) {
+          Console.Clear();
+          op = Menu();
         }
-        if (op == -1) {
-          Console.WriteLine("clear");
-          Menu();
+        switch(op) {
+          case 2: op = 1; break;
+          case 3: op = 2; break;
+          case 4: op = 3; break;
+          case 5: op = 4; break;
         }
       }
-      
+      if (op == 2) {}
+      if (op == 3) {}
+      if (op == 4) {}
       return op;
     }
     public static void LivroInserir() {
       
       string t, v, e, a, d, i;
       
+      Console.Clear();
       Console.WriteLine("Digite o título do livro:");
       t = Console.ReadLine();
-      Console.WriteLine("Digite o volume do livro");
+      Console.WriteLine("Digite o volume do livro:");
       v = Console.ReadLine();
-      Console.WriteLine("Digite a edição do livro");
+      Console.WriteLine("Digite a edição do livro:");
       e = Console.ReadLine();
-      Console.WriteLine("Digite o autor do livro");
+      Console.WriteLine("Digite o autor do livro:");
       a = Console.ReadLine();
-      Console.WriteLine("Digite a descrição do livro");
+      Console.WriteLine("Digite a descrição do livro:");
       d = Console.ReadLine();
-      Console.WriteLine("Digite o ISBN do livro");
+      Console.WriteLine("Digite o ISBN do livro:");
       i = Console.ReadLine();
+      Console.Clear();
       
       Livro l1 = new Livro {Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
       NLivro.LivroInserir(l1);
-      Console.WriteLine("Livro inserido");
+      Console.WriteLine("Livro inserido\n");
     }
     public static void LivroListar() {}
     public static void LivroAtualizar() {}
