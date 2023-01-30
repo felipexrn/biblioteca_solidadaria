@@ -21,10 +21,22 @@ namespace Negocio {
       /*implementar*/
     }
     public static void ExemplarAbrirArquivo() {
-      /*implementar*/
+      XmlSerializer xml = new XmlSerializer(typeof(List<Exemplar>));
+      StreamReader stream = null;
+      try {
+        stream = new StreamReader("./exemplares.xml");
+        exemplares = (List<Exemplar>) xml.Deserialize(stream);
+      }
+      catch (FileNotFoundException) {
+        exemplares = new List<Exemplar>();
+      }
+      if (stream != null) stream.Close();
     }
     public static void ExemplarSalvarArquivo() {
-      /*implementar*/
+      XmlSerializer xml = new XmlSerializer(typeof(List<Exemplar>));
+      StreamWriter stream = new StreamWriter("./exemplares.xml", false);
+      xml.Serialize(stream, exemplares);
+      stream.Close();
     }
   }
 }

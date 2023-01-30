@@ -4,13 +4,44 @@ using Negocio;
 namespace Visao {
   class Biblioteca {
     public static void Main() {
-      
+      int option = Menu();
       LivroInserir();
+      ExemplarInserir();
 
     }
-    public static void Menu() {}
+    public static int Menu() {
+      int op;
+      Console.WriteLine(
+        "00 = Sair do programa\n\n" +
+        "---------------------\n" +
+        "     Categorias\n\n" + 
+        "---------------------\n" +
+        "01 - Livros\n" +
+        "02 - Exemplares\n" +
+        "03 - Locação\n" +
+        "04 - Locadores\n"
+      );
+      op = int.Parse(Console.ReadLine());
+      switch(op) {
+        case 1:
+      }
+      return 
+    }
     public static void LivroInserir() {
-      Livro l1 = new Livro {Titulo = "O sono dos justos", Autor = "Um Aluno exausto", Descricao = "Nada há nesse livro, pois o autor só estuda e trabalha...", Isbn = "2012548615168135168"};
+      string t, v, e, a, d, i;
+      Console.WriteLine("Digite o título do livro:");
+      t = Console.ReadLine();
+      Console.WriteLine("Digite o volume do livro");
+      v = Console.ReadLine();
+      Console.WriteLine("Digite a edição do livro");
+      e = Console.ReadLine();
+      Console.WriteLine("Digite o autor do livro");
+      a = Console.ReadLine();
+      Console.WriteLine("Digite a descrição do livro");
+      d = Console.ReadLine();
+      Console.WriteLine("Digite o ISBN do livro");
+      i = Console.ReadLine();
+      Livro l1 = new Livro {Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
 
       NLivro.LivroInserir(l1);
 
