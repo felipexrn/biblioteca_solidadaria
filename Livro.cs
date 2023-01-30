@@ -10,7 +10,7 @@ namespace Modelo {
     public string Descricao {get; set;} /*implementar*/
     public string Isbn {get; set;} /*implementar*/
     public Livro() {}
-    public Livro(int id, string t, sring v, string e, string a, string d, string i) {
+    public Livro(int id, string t, string v, string e, string a, string d, string i) {
       Id = id;
       Titulo = t;
       Volume = v;
@@ -19,7 +19,7 @@ namespace Modelo {
       Descricao = d;
       Isbn = i;
     }
-    public Livro(string t, sring v, string e, string a, string d, string i) {
+    public Livro(string t, string v, string e, string a, string d, string i) {
       Titulo = t;
       Volume = v;
       Edicao = e;

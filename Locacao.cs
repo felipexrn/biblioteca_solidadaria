@@ -19,7 +19,7 @@ namespace Modelo {
       IdLocador = idLocador;
     }
     public override string ToString(){
-      return $"Id: {this.Id}\nData de Locacao: {this.Data de Locacao}\nId Exemplar: {this.Id Exemplar}\nId Locador: {this.Id Locador}\nData de Devolucao: {this.dataDevolucao}";
+      return $"Id: {this.Id}\nData de Locacao: {this.DataLocacao}\nId Exemplar: {this.IdExemplar}\nId Locador: {this.IdLocador}\nData de Devolucao: {this.dataDevolucao}";
     }
     public int CompareTo(object obj){
       Locacao l1 = (Locacao) obj;
