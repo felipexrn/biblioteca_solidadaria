@@ -43,14 +43,3 @@ namespace Modelo {
     }
   }
 }
-
-/*
-    // exemplo de tratamento de erros
-    try {
-      // Código protegido – fluxo normal da aplicação
-    }
-    catch {
-      // Código do tratamento de erro – fluxo de exceção
-      Console.WriteLine("Valor informado é inválido");
-    }
-*/
