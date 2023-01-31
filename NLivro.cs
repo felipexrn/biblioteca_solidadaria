@@ -52,7 +52,6 @@ namespace Negocio {
         LivroSalvarArquivo();
       }
     }
-    
     public static void LivroAbrirArquivo() {
       XmlSerializer xml = new XmlSerializer(typeof(List<Livro>));
       StreamReader stream = null;
