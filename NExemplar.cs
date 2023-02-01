@@ -7,18 +7,46 @@ using System.IO;
 namespace Negocio {
   public class NExemplar {
     private static List<Exemplar> exemplares;
-    public static void ExemplarInserir(int idLivro, bool a) {
-      /*implementar*/
-    }
-    public static void ExemplarAtualizar(int idExemplar, int idLivro, bool a) {
-      /*implementar*/
-    }
-    public static void ExemplarExcluir(int idExemplar) {
-      /*implementar*/
+    public static void ExemplarInserir(Exemplar e) {
+      ExemplarAbrirArquivo();
+      int id;
+      if (exemplares.Count == 0) id = 1;
+      else {
+        id = exemplares.Max(x => x.Id);
+        id++;
+      }
+      e.Id = id;
+      exemplares.Add(e);
+      ExemplarSalvarArquivo();
     }
     public static List<Exemplar> ExemplarListar() {
+      ExemplarAbrirArquivo();
       return exemplares;
-      /*implementar*/
+    }
+    public static Exemplar ExemplarListar(int id) {
+      ExemplarAbrirArquivo();
+      return exemplares.Where(x => x.Id == id).SingleOrDefault();
+    }
+    public static void ExemplarAtualizar(Exemplar e) {
+      ExemplarAbrirArquivo();
+      Exemplar obj = ExemplarListar(e.Id);
+      if (obj == null) 
+        throw new ArgumentOutOfRangeException("id inválido");
+      else {
+        obj.Alugado = e.Alugado;
+        obj.IdLivro = e.IdLivro;
+        ExemplarSalvarArquivo();
+      }
+    }
+    public static void ExemplarExcluir(Exemplar e) {
+      ExemplarAbrirArquivo();
+      Exemplar obj = ExemplarListar(e.Id);
+      if (obj == null) 
+        throw new ArgumentOutOfRangeException("id inválido");
+      else {
+        exemplares.Remove(obj);
+        ExemplarSalvarArquivo();
+      }
     }
     public static void ExemplarAbrirArquivo() {
       XmlSerializer xml = new XmlSerializer(typeof(List<Exemplar>));
