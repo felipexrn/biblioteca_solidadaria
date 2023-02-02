@@ -228,10 +228,63 @@ namespace Visao {
         Console.WriteLine("Livro excluído");
       }
     }
-    public static void ExemplarInserir() {}
-    public static void ExemplarListar() {}
-    public static void ExemplarAtualizar() {}
-    public static void ExemplarApagar() {}
+    public static void ExemplarInserir() {
+      string ans;
+      int idLivro;
+      bool a = false;
+      
+      Console.Clear();
+      Console.WriteLine("Digite o id do livro:");
+      idLivro = int.Parse(Console.ReadLine());
+      Console.WriteLine("O livro está alugado (s/n)?");
+      ans = Console.ReadLine();
+      if (ans == "s") a = true;
+      Console.Clear();
+      
+      Exemplar exemplar = new Exemplar {Alugado = a, IdLivro = idLivro};
+      NExemplar.ExemplarInserir(exemplar);
+      Console.WriteLine("Exemplar inserido\n");
+    }
+    public static void ExemplarListar() {
+      Console.Clear();
+      foreach (Exemplar exemplar in NExemplar.ExemplarListar()) 
+        Console.WriteLine(exemplar + "\n");  
+    }
+    public static void ExemplarAtualizar() {
+      string ans;
+      int id, idLivro;
+      bool a = false;
+      
+      Console.Clear();
+      Console.WriteLine("Digite o id do exemplar:");
+      id = int.Parse(Console.ReadLine());
+      Console.WriteLine("Digite o id do livro:");
+      idLivro = int.Parse(Console.ReadLine());
+      Console.WriteLine("O livro está alugado (s/n)?");
+      ans = Console.ReadLine();
+      if (ans == "s") a = true;
+      Console.Clear();
+      
+      Exemplar exemplar = new Exemplar {Id = id, Alugado = a, IdLivro = idLivro};
+      NExemplar.ExemplarAtualizar(exemplar);
+      Console.WriteLine("Exemplar atualizado\n");
+    }
+    public static void ExemplarApagar() {
+      Console.Clear();
+      Console.WriteLine("Informe o Id do exemplar a ser excluído");
+      int id = int.Parse(Console.ReadLine());
+      Console.Clear();
+      Console.WriteLine("Tem certeza que deseja excluir o exemplar (s/n)?");
+      Exemplar exemplar = new Exemplar {Id = id};
+      Console.WriteLine(NExemplar.ExemplarListar(id));
+      string ans = Console.ReadLine();
+      Console.Clear();
+      if (ans == "n") Console.WriteLine("Exclusão cancelada");
+      if (ans == "s") {
+        NExemplar.ExemplarExcluir(exemplar);
+        Console.WriteLine("Exemplar excluído");
+      }
+    }
     public static void LocacaoInserir() {}
     public static void LocacaoListar() {}
     public static void LocacaoAtualizar() {}
