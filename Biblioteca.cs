@@ -12,10 +12,10 @@ namespace Visao {
             case 2: LivroListar(); break;  // Implementado
             case 3: LivroAtualizar(); break;  // Implementado
             case 4: LivroApagar(); break;  // Implementado
-            case 5: ExemplarInserir(); break;
-            case 6: ExemplarListar(); break;
-            case 7: ExemplarAtualizar(); break;
-            case 8: ExemplarApagar(); break;
+            case 5: ExemplarInserir(); break; // Implementado
+            case 6: ExemplarListar(); break; // Implementado
+            case 7: ExemplarAtualizar(); break; // Implementado
+            case 8: ExemplarApagar(); break; // Implementado
             case 9: LocacaoInserir(); break;
             case 10: LocacaoListar(); break;
             case 11: LocacaoAtualizar(); break;
