@@ -70,5 +70,17 @@ namespace Negocio {
       xml.Serialize(stream, livros);
       stream.Close();
     }
+    public static List<Livro> LivroPesquisarTitulo(string titulo) {
+      LivroAbrirArquivo();
+      List<Livro> pesquisa = new List<Livro>();
+      pesquisa = livros.Where(x => x.Titulo.Contains(titulo) == true).ToList();
+      return pesquisa;
+    }
+    public static List<Livro> LivroPesquisarAutor(string autor) {
+      LivroAbrirArquivo();
+      List<Livro> pesquisa = new List<Livro>();
+      pesquisa = livros.Where(x => x.Autor.Contains(autor) == true).ToList();
+      return pesquisa;
+    }
   }
 }

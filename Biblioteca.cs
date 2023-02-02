@@ -12,19 +12,27 @@ namespace Visao {
             case 2: LivroListar(); break;  // Implementado
             case 3: LivroAtualizar(); break;  // Implementado
             case 4: LivroApagar(); break;  // Implementado
-            case 5: ExemplarInserir(); break; // Implementado
-            case 6: ExemplarListar(); break; // Implementado
-            case 7: ExemplarAtualizar(); break; // Implementado
-            case 8: ExemplarApagar(); break; // Implementado
-            case 9: LocacaoInserir(); break;
-            case 10: LocacaoListar(); break;
-            case 11: LocacaoAtualizar(); break;
-            case 12: LocacaoApagar(); break;
-            case 13: LocadorInserir(); break;
-            case 14: LocadorListar(); break;
-            case 15: LocadorAtualizar(); break;
-            case 16: LocadorApagar(); break;
-            case 17: Devolucao(); break;
+            case 5: LivroPesquisarTitulo(); break; // Implementado
+            case 6: LivroPesquisarAutor(); break; // Implementado
+            
+            case 7: ExemplarInserir(); break; // Implementado
+            case 8: ExemplarListar(); break; // Implementado
+            case 9: ExemplarAtualizar(); break; // Implementado
+            case 10: ExemplarApagar(); break; // Implementado
+            case 11: ExemplarDevolver(); break;
+            
+            case 12: LocacaoInserir(); break;
+            case 13: LocacaoListar(); break;
+            case 14: LocacaoAtualizar(); break;
+            case 15: LocacaoApagar(); break;
+            case 16: LocacaoOrdenarDataDev(); break;
+            case 17: LocacaoOrdenarDataLoc(); break;
+            
+            case 18: LocadorInserir(); break;
+            case 19: LocadorListar(); break;
+            case 20: LocadorAtualizar(); break;
+            case 21: LocadorApagar(); break;
+            case 22: LocadorPesquisar(); break;
           }
         }
         catch (Exception erro) {
@@ -45,11 +53,10 @@ namespace Visao {
         "01 = Livros\n" +
         "02 = Exemplares\n" +
         "03 = Locação\n" +
-        "04 = Locadores\n" + 
-        "05 = Devolução"
+        "04 = Locadores"
       );
       op = int.Parse(Console.ReadLine());
-      if (op > 4 || op < 0 && op != 17) {
+      if (op > 4 || op < 0) {
         Console.Clear();
         Console.WriteLine("Valor escolhido é inválido\n");
         op = Menu();
@@ -66,7 +73,9 @@ namespace Visao {
         "02 - Inserir livro\n" +
         "03 - Listar livros\n" +
         "04 - Atualizar livro\n" +
-        "05 - Excluir livro"
+        "05 - Excluir livro\n" + 
+        "06 - Pesquisar Título\n" +
+        "07 - Pesquisar Autor"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -75,10 +84,12 @@ namespace Visao {
           op = Menu();
         }
         switch(op) {
-        case 2: return 1;
-        case 3: return 2;
-        case 4: return 3;
-        case 5: return 4;
+          case 2: return 1;
+          case 3: return 2;
+          case 4: return 3;
+          case 5: return 4;
+          case 6: return 5;
+          case 7: return 6;
         }
       }
       if (op == 2) {
@@ -91,7 +102,8 @@ namespace Visao {
         "02 = Inserir exemplar\n" +
         "03 = Listar exemplar\n" +
         "04 = Atualizar exemplar\n" +
-        "05 = Excluir exemplar"
+        "05 = Excluir exemplar\n" + 
+        "06 = Devolver exemplar"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -100,10 +112,11 @@ namespace Visao {
           op = Menu();
         }
         switch(op) {
-        case 2: return 5;
-        case 3: return 6;
-        case 4: return 7;
-        case 5: return 8;
+        case 2: return 7;
+        case 3: return 8;
+        case 4: return 9;
+        case 5: return 10;
+        case 6: return 11;
         }
       }
       if (op == 3) {
@@ -116,7 +129,9 @@ namespace Visao {
         "02 = Inserir locação\n" +
         "03 = Listar locação\n" +
         "04 = Atualizar locação\n" +
-        "05 = Excluir locação"
+        "05 = Excluir locação\n" +
+        "06 = Ordenar data devolução\n" +
+        "07 = Ordenar data Locação"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -125,10 +140,12 @@ namespace Visao {
           op = Menu();
         }
         switch(op) {
-        case 2: return 9;
-        case 3: return 10;
-        case 4: return 11;
-        case 5: return 12;
+        case 2: return 12;
+        case 3: return 13;
+        case 4: return 14;
+        case 5: return 15;
+        case 6: return 16;
+        case 7: return 17;
         }
       }
       if (op == 4) {
@@ -141,7 +158,8 @@ namespace Visao {
         "02 = Inserir locador\n" +
         "03 = Listar locador\n" +
         "04 = Atualizar locador\n" +
-        "05 = Excluir locador"
+        "05 = Excluir locador\n" + 
+        "06 = Pesquisar locador"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -150,10 +168,11 @@ namespace Visao {
           op = Menu();
         }
         switch(op) {
-        case 2: return 13;
-        case 3: return 14;
-        case 4: return 15;
-        case 5: return 16;
+        case 2: return 18;
+        case 3: return 19;
+        case 4: return 20;
+        case 5: return 21;
+        case 6: return 22;
         }
       }
       return op;
@@ -169,7 +188,7 @@ namespace Visao {
       v = Console.ReadLine();
       Console.WriteLine("Digite a edição do livro:");
       e = Console.ReadLine();
-      Console.WriteLine("Digite o autor do livro:");
+      Console.WriteLine("Digite o(a) autor(a) do livro:");
       a = Console.ReadLine();
       Console.WriteLine("Digite a descrição do livro:");
       d = Console.ReadLine();
@@ -200,7 +219,7 @@ namespace Visao {
       v = Console.ReadLine();
       Console.WriteLine("Digite a edição do livro:");
       e = Console.ReadLine();
-      Console.WriteLine("Digite o autor do livro:");
+      Console.WriteLine("Digite o(a) autor(a) do livro:");
       a = Console.ReadLine();
       Console.WriteLine("Digite a descrição do livro:");
       d = Console.ReadLine();
@@ -227,6 +246,32 @@ namespace Visao {
         NLivro.LivroExcluir(livro);
         Console.WriteLine("Livro excluído");
       }
+    }
+    public static void LivroPesquisarTitulo() {
+      string t;
+      Console.Clear();
+      Console.WriteLine("Digite o título do livro:");
+      t = Console.ReadLine();
+      Console.Clear();
+      if (NLivro.LivroPesquisarTitulo(t).Count > 0) {
+        foreach(Livro livro in NLivro.LivroPesquisarTitulo(t)) {
+          Console.WriteLine(livro + "\n");
+        }
+      } else Console.WriteLine("Título não encontrado\n");
+      
+    }
+    public static void LivroPesquisarAutor() {
+      string a;
+      Console.Clear();
+      Console.WriteLine("Digite o(a) autor(a) do livro:");
+      a = Console.ReadLine();
+      Console.Clear();
+      if (NLivro.LivroPesquisarAutor(a).Count > 0) {
+        foreach(Livro livro in NLivro.LivroPesquisarAutor(a)) {
+          Console.WriteLine(livro + "\n");
+        }
+      } else Console.WriteLine("Autor não encontrado\n");
+      
     }
     public static void ExemplarInserir() {
       string ans;
@@ -285,15 +330,17 @@ namespace Visao {
         Console.WriteLine("Exemplar excluído");
       }
     }
+    public static void ExemplarDevolver() {}
     public static void LocacaoInserir() {}
     public static void LocacaoListar() {}
     public static void LocacaoAtualizar() {}
     public static void LocacaoApagar() {}
+    public static void LocacaoOrdenarDataDev() {}
+    public static void LocacaoOrdenarDataLoc() {}
     public static void LocadorInserir() {}
     public static void LocadorListar() {}
     public static void LocadorAtualizar() {}
     public static void LocadorApagar() {}
-    public static void Devolucao() {}
-    
+    public static void LocadorPesquisar() {}
   }
 }
