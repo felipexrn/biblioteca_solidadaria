@@ -2,17 +2,17 @@
 <ArrayOfExemplar xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Exemplar>
     <Id>1</Id>
-    <Alugado>false</Alugado>
+    <Alugado>Sim</Alugado>
     <IdLivro>1</IdLivro>
   </Exemplar>
   <Exemplar>
     <Id>2</Id>
-    <Alugado>true</Alugado>
+    <Alugado>Não</Alugado>
     <IdLivro>1</IdLivro>
   </Exemplar>
   <Exemplar>
     <Id>3</Id>
-    <Alugado>false</Alugado>
+    <Alugado>Não</Alugado>
     <IdLivro>13</IdLivro>
   </Exemplar>
 </ArrayOfExemplar>

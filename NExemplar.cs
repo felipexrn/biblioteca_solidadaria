@@ -82,7 +82,7 @@ namespace Negocio {
     }
     public static int ExemplarContarAlugado(int idLivro) {
       ExemplarAbrirArquivo();
-      return exemplares.Count(x => x.IdLivro == idLivro && x.Alugado == false);
+      return exemplares.Count(x => x.IdLivro == idLivro && x.Alugado == "Não");
     }
   }
 }

@@ -206,8 +206,7 @@ namespace Visao {
         Console.WriteLine(
           livro + "\n" +
           "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
-            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n" +
-          "\n");  
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n");  
     }
     public static void LivroAtualizar() {
       
@@ -288,14 +287,14 @@ namespace Visao {
     public static void ExemplarInserir() {
       string ans;
       int idLivro;
-      bool a = false;
+      string a = "Não";
       
       Console.Clear();
       Console.WriteLine("Digite o id do livro:");
       idLivro = int.Parse(Console.ReadLine());
       Console.WriteLine("O livro está alugado (s/n)?");
       ans = Console.ReadLine();
-      if (ans == "s") a = true;
+      if (ans == "s") a = "Sim";
       Console.Clear();
       
       Exemplar exemplar = new Exemplar {Alugado = a, IdLivro = idLivro};
@@ -306,13 +305,14 @@ namespace Visao {
       Console.Clear();
       foreach (Exemplar exemplar in NExemplar.ExemplarListar()) 
         Console.WriteLine(
-          exemplar + "\n"
-          );  
+          exemplar + "\n" + 
+          NLivro.LivroListar(exemplar.IdLivro) + 
+          "\n");  
     }
     public static void ExemplarAtualizar() {
       string ans;
       int id, idLivro;
-      bool a = false;
+      string a = "Não";
       
       Console.Clear();
       Console.WriteLine("Digite o id do exemplar:");
@@ -321,7 +321,7 @@ namespace Visao {
       idLivro = int.Parse(Console.ReadLine());
       Console.WriteLine("O livro está alugado (s/n)?");
       ans = Console.ReadLine();
-      if (ans == "s") a = true;
+      if (ans == "s") a = "Sim";
       Console.Clear();
       
       Exemplar exemplar = new Exemplar {Id = id, Alugado = a, IdLivro = idLivro};
@@ -345,16 +345,14 @@ namespace Visao {
       }
     }
     public static void ExemplarDevolver() {
-      string ans;
       int id;
-      bool a = true;
       
       Console.Clear();
       Console.WriteLine("Digite o id do exemplar:");
       id = int.Parse(Console.ReadLine());
       Console.Clear();
       
-      Exemplar exemplar = new Exemplar {Id = id, Alugado = a};
+      Exemplar exemplar = new Exemplar {Id = id, Alugado = "Não"};
       NExemplar.ExemplarAtualizar(exemplar);
       Console.WriteLine("Exemplar devolvido\n");
     }
