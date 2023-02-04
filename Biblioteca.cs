@@ -19,7 +19,7 @@ namespace Visao {
             case 8: ExemplarListar(); break; // Implementado
             case 9: ExemplarAtualizar(); break; // Implementado
             case 10: ExemplarApagar(); break; // Implementado
-            case 11: ExemplarDevolver(); break;
+            case 11: ExemplarDevolver(); break; // Implementado
             
             case 12: LocacaoInserir(); break;
             case 13: LocacaoListar(); break;
