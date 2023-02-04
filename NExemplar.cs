@@ -66,5 +66,23 @@ namespace Negocio {
       xml.Serialize(stream, exemplares);
       stream.Close();
     }
+    public static void ExemplarDevolver(Exemplar e) {
+      ExemplarAbrirArquivo();
+      Exemplar obj = ExemplarListar(e.Id);
+      if (obj == null) 
+        throw new ArgumentOutOfRangeException("id inválido");
+      else {
+        obj.Alugado = e.Alugado;
+        ExemplarSalvarArquivo();
+      }
+    }
+    public static int ExemplarContarIdLivro(int idLivro) {
+      ExemplarAbrirArquivo();
+      return exemplares.Count(x => x.IdLivro == idLivro);
+    }
+    public static int ExemplarContarAlugado(int idLivro) {
+      ExemplarAbrirArquivo();
+      return exemplares.Count(x => x.IdLivro == idLivro && x.Alugado == false);
+    }
   }
 }

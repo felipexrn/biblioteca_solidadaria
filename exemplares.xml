@@ -5,4 +5,14 @@
     <Alugado>false</Alugado>
     <IdLivro>1</IdLivro>
   </Exemplar>
+  <Exemplar>
+    <Id>2</Id>
+    <Alugado>true</Alugado>
+    <IdLivro>1</IdLivro>
+  </Exemplar>
+  <Exemplar>
+    <Id>3</Id>
+    <Alugado>false</Alugado>
+    <IdLivro>13</IdLivro>
+  </Exemplar>
 </ArrayOfExemplar>

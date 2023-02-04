@@ -203,7 +203,11 @@ namespace Visao {
     public static void LivroListar() {
       Console.Clear();
       foreach (Livro livro in NLivro.LivroListar()) 
-        Console.WriteLine(livro + "\n");  
+        Console.WriteLine(
+          livro + "\n" +
+          "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n" +
+          "\n");  
     }
     public static void LivroAtualizar() {
       
@@ -255,7 +259,11 @@ namespace Visao {
       Console.Clear();
       if (NLivro.LivroPesquisarTitulo(t).Count > 0) {
         foreach(Livro livro in NLivro.LivroPesquisarTitulo(t)) {
-          Console.WriteLine(livro + "\n");
+          Console.WriteLine(
+            livro + "\n" +
+            "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n" +
+            "\n");
         }
       } else Console.WriteLine("Título não encontrado\n");
       
@@ -268,7 +276,11 @@ namespace Visao {
       Console.Clear();
       if (NLivro.LivroPesquisarAutor(a).Count > 0) {
         foreach(Livro livro in NLivro.LivroPesquisarAutor(a)) {
-          Console.WriteLine(livro + "\n");
+          Console.WriteLine(
+            livro + "\n" +
+            "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n" +
+            "\n");
         }
       } else Console.WriteLine("Autor não encontrado\n");
       
@@ -293,7 +305,9 @@ namespace Visao {
     public static void ExemplarListar() {
       Console.Clear();
       foreach (Exemplar exemplar in NExemplar.ExemplarListar()) 
-        Console.WriteLine(exemplar + "\n");  
+        Console.WriteLine(
+          exemplar + "\n"
+          );  
     }
     public static void ExemplarAtualizar() {
       string ans;
@@ -330,7 +344,20 @@ namespace Visao {
         Console.WriteLine("Exemplar excluído");
       }
     }
-    public static void ExemplarDevolver() {}
+    public static void ExemplarDevolver() {
+      string ans;
+      int id;
+      bool a = true;
+      
+      Console.Clear();
+      Console.WriteLine("Digite o id do exemplar:");
+      id = int.Parse(Console.ReadLine());
+      Console.Clear();
+      
+      Exemplar exemplar = new Exemplar {Id = id, Alugado = a};
+      NExemplar.ExemplarAtualizar(exemplar);
+      Console.WriteLine("Exemplar devolvido\n");
+    }
     public static void LocacaoInserir() {}
     public static void LocacaoListar() {}
     public static void LocacaoAtualizar() {}
