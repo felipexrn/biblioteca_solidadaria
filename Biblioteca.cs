@@ -4,7 +4,18 @@ using Negocio;
 namespace Visao {
   class Biblioteca {
     public static void Main() {
-      int op = Menu();
+      string mensagem = 
+        "----------------------\n" +
+        " BIBLIOTECA SOLIDÁRIA \n" +
+        "----------------------\n" +
+        "IFRN CNAT - Curso de TADS - Disciplina de POO\n" +
+        "Professor: Gilbert Silva\n" +
+        "Projeto: Implementação de sistema orietado a objetos\n" +
+        "Alunos: Felipe Xavier e Elton da Silva\n" +
+        "Disponível em: github.com/felipexrn/biblioteca_solidaria\n";
+      //Console.WriteLine(mensagem);
+      Console.Clear();
+      int op = Menu(); 
       while(op!=0) {
         try {
           switch(op) {
@@ -41,15 +52,17 @@ namespace Visao {
         op = Menu();
       }
       Console.Clear();
-      Console.WriteLine("Programa encerrado");
+      Console.WriteLine(mensagem);
+      Console.WriteLine("Programa encerrado.");
     }
     public static int Menu() {
       int op;
       Console.WriteLine(
+        " BIBLIOTECA SOLIDÁRIA\n" +
+        "----------------------\n" +
+        "         Menu\n" + 
+        "----------------------\n" +
         "00 = Sair do programa\n" +
-        "---------------------\n" +
-        "     Categorias\n" + 
-        "---------------------\n" +
         "01 = Livros\n" +
         "02 = Exemplares\n" +
         "03 = Locação\n" +
@@ -65,8 +78,12 @@ namespace Visao {
       if (op == 0) return op;
       if (op == 1) {
         Console.WriteLine(
+        " BIBLIOTECA SOLIDÁRIA\n" +
+        "----------------------\n" +
+        "         Menu\n" + 
+        "----------------------\n" +
         "00 = Sair do programa\n" +
-        "01 = Voltar para o menu anterior\n" +
+        "01 = Voltar para o menu\n" +
         "---------------------\n" +
         "  Categoria  Livros\n" + 
         "---------------------\n" +
@@ -75,7 +92,7 @@ namespace Visao {
         "04 - Atualizar livro\n" +
         "05 - Excluir livro\n" + 
         "06 - Pesquisar Título\n" +
-        "07 - Pesquisar Autor"
+        "07 - Pesquisar Autor(a)"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -94,13 +111,17 @@ namespace Visao {
       }
       if (op == 2) {
         Console.WriteLine(
+        " BIBLIOTECA SOLIDÁRIA\n" +
+        "----------------------\n" +
+        "         Menu\n" + 
+        "----------------------\n" +
         "00 = Sair do programa\n" +
-        "01 = Voltar para o menu anterior\n" +
+        "01 = Voltar para o menu\n" +
         "---------------------\n" +
         "Categoria  Exemplares\n" + 
         "---------------------\n" +
         "02 = Inserir exemplar\n" +
-        "03 = Listar exemplar\n" +
+        "03 = Listar exemplares\n" +
         "04 = Atualizar exemplar\n" +
         "05 = Excluir exemplar\n" + 
         "06 = Devolver exemplar"
@@ -121,8 +142,12 @@ namespace Visao {
       }
       if (op == 3) {
         Console.WriteLine(
+        " BIBLIOTECA SOLIDÁRIA\n" +
+        "----------------------\n" +
+        "         Menu\n" + 
+        "----------------------\n" +
         "00 = Sair do programa\n" +
-        "01 = Voltar para o menu anterior\n" +
+        "01 = Voltar para o menu\n" +
         "---------------------\n" +
         "  Categoria Locação\n" + 
         "---------------------\n" +
@@ -150,16 +175,20 @@ namespace Visao {
       }
       if (op == 4) {
         Console.WriteLine(
+        " BIBLIOTECA SOLIDÁRIA\n" +
+        "----------------------\n" +
+        "         Menu\n" + 
+        "----------------------\n" +
         "00 = Sair do programa\n" +
-        "01 = Voltar para o menu anterior\n" +
-        "---------------------\n" +
-        "  Categoria Locador\n" + 
-        "---------------------\n" +
-        "02 = Inserir locador\n" +
-        "03 = Listar locador\n" +
-        "04 = Atualizar locador\n" +
-        "05 = Excluir locador\n" + 
-        "06 = Pesquisar locador"
+        "01 = Voltar para o menu\n" +
+        "----------------------\n" +
+        " Categoria Locador(a)\n" + 
+        "----------------------\n" +
+        "02 = Inserir locador(a)\n" +
+        "03 = Listar locador(a)\n" +
+        "04 = Atualizar locador(a)\n" +
+        "05 = Excluir locador(a)\n" + 
+        "06 = Pesquisar locador(a)"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -182,6 +211,11 @@ namespace Visao {
       string t, v, e, a, d, i;
       
       Console.Clear();
+      Console.WriteLine(
+        "------------------\n" +
+        "02 - Inserir livro\n" +
+        "------------------\n"
+        );
       Console.WriteLine("Digite o título do livro:");
       t = Console.ReadLine();
       Console.WriteLine("Digite o volume do livro:");
@@ -202,6 +236,11 @@ namespace Visao {
     }
     public static void LivroListar() {
       Console.Clear();
+      Console.WriteLine(
+        "------------------\n" +
+        "03 - Listar livros\n" +
+        "------------------\n"
+        );
       foreach (Livro livro in NLivro.LivroListar()) 
         Console.WriteLine(
           livro + "\n" +
@@ -214,6 +253,11 @@ namespace Visao {
       string t, v, e, a, d, i;
       
       Console.Clear();
+      Console.WriteLine(
+        "--------------------\n" +
+        "04 - Atualizar livro\n" +
+        "--------------------\n"
+        );
       Console.WriteLine("Digite o id do livro:");
       id = int.Parse(Console.ReadLine());
       Console.WriteLine("Digite o título do livro:");
@@ -236,23 +280,32 @@ namespace Visao {
     }
     public static void LivroApagar() {
       Console.Clear();
+      Console.WriteLine(
+        "------------------\n" +
+        "05 - Excluir livro\n" +
+        "------------------\n"
+        );
       Console.WriteLine("Informe o Id do livro a ser excluído");
       int id = int.Parse(Console.ReadLine());
-      Console.Clear();
       Console.WriteLine("Tem certeza que deseja excluir o livro (s/n)?");
       Livro livro = new Livro {Id = id};
       Console.WriteLine(NLivro.LivroListar(id));
       string ans = Console.ReadLine();
       Console.Clear();
-      if (ans == "n") Console.WriteLine("Exclusão cancelada");
+      if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
       if (ans == "s") {
         NLivro.LivroExcluir(livro);
-        Console.WriteLine("Livro excluído");
+        Console.WriteLine("Livro excluído\n");
       }
     }
     public static void LivroPesquisarTitulo() {
       string t;
       Console.Clear();
+      Console.WriteLine(
+        "---------------------\n" +
+        "06 - Pesquisar Título\n" +
+        "---------------------\n"
+        );
       Console.WriteLine("Digite o título do livro:");
       t = Console.ReadLine();
       Console.Clear();
@@ -261,7 +314,7 @@ namespace Visao {
           Console.WriteLine(
             livro + "\n" +
             "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
-            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() +
             "\n");
         }
       } else Console.WriteLine("Título não encontrado\n");
@@ -270,6 +323,11 @@ namespace Visao {
     public static void LivroPesquisarAutor() {
       string a;
       Console.Clear();
+      Console.WriteLine(
+        "----------------------\n" +
+        "07 - Pesquisar Autor(a)\n" +
+        "----------------------\n"
+        );
       Console.WriteLine("Digite o(a) autor(a) do livro:");
       a = Console.ReadLine();
       Console.Clear();
@@ -278,7 +336,7 @@ namespace Visao {
           Console.WriteLine(
             livro + "\n" +
             "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
-            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() +
             "\n");
         }
       } else Console.WriteLine("Autor não encontrado\n");
@@ -290,6 +348,11 @@ namespace Visao {
       string a = "Não";
       
       Console.Clear();
+      Console.WriteLine(
+        "---------------------\n" +
+        "02 - Inserir exemplar\n" +
+        "---------------------\n"
+        );
       Console.WriteLine("Digite o id do livro:");
       idLivro = int.Parse(Console.ReadLine());
       Console.WriteLine("O livro está alugado (s/n)?");
@@ -303,6 +366,11 @@ namespace Visao {
     }
     public static void ExemplarListar() {
       Console.Clear();
+      Console.WriteLine(
+        "----------------------\n" +
+        "03 - Listar exemplares\n" +
+        "----------------------\n"
+        );
       foreach (Exemplar exemplar in NExemplar.ExemplarListar()) 
         Console.WriteLine(
           exemplar + "\n" + 
@@ -315,6 +383,11 @@ namespace Visao {
       string a = "Não";
       
       Console.Clear();
+      Console.WriteLine(
+        "-----------------------\n" +
+        "04 - Atualizar exemplar\n" +
+        "-----------------------\n"
+        );
       Console.WriteLine("Digite o id do exemplar:");
       id = int.Parse(Console.ReadLine());
       Console.WriteLine("Digite o id do livro:");
@@ -330,24 +403,33 @@ namespace Visao {
     }
     public static void ExemplarApagar() {
       Console.Clear();
+      Console.WriteLine(
+        "---------------------\n" +
+        "05 - Excluir exemplar\n" +
+        "---------------------\n"
+        );
       Console.WriteLine("Informe o Id do exemplar a ser excluído");
       int id = int.Parse(Console.ReadLine());
-      Console.Clear();
       Console.WriteLine("Tem certeza que deseja excluir o exemplar (s/n)?");
       Exemplar exemplar = new Exemplar {Id = id};
       Console.WriteLine(NExemplar.ExemplarListar(id));
       string ans = Console.ReadLine();
       Console.Clear();
-      if (ans == "n") Console.WriteLine("Exclusão cancelada");
+      if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
       if (ans == "s") {
         NExemplar.ExemplarExcluir(exemplar);
-        Console.WriteLine("Exemplar excluído");
+        Console.WriteLine("Exemplar excluído\n");
       }
     }
     public static void ExemplarDevolver() {
       int id;
       
       Console.Clear();
+      Console.WriteLine(
+        "----------------------\n" +
+        "06 - Devolver exemplar\n" +
+        "----------------------\n"
+        );
       Console.WriteLine("Digite o id do exemplar:");
       id = int.Parse(Console.ReadLine());
       Console.Clear();
@@ -356,16 +438,16 @@ namespace Visao {
       NExemplar.ExemplarAtualizar(exemplar);
       Console.WriteLine("Exemplar devolvido\n");
     }
-    public static void LocacaoInserir() {}
-    public static void LocacaoListar() {}
-    public static void LocacaoAtualizar() {}
-    public static void LocacaoApagar() {}
-    public static void LocacaoOrdenarDataDev() {}
-    public static void LocacaoOrdenarDataLoc() {}
-    public static void LocadorInserir() {}
-    public static void LocadorListar() {}
-    public static void LocadorAtualizar() {}
-    public static void LocadorApagar() {}
-    public static void LocadorPesquisar() {}
+    public static void LocacaoInserir() {Console.Clear();}
+    public static void LocacaoListar() {Console.Clear();}
+    public static void LocacaoAtualizar() {Console.Clear();}
+    public static void LocacaoApagar() {Console.Clear();}
+    public static void LocacaoOrdenarDataDev() {Console.Clear();}
+    public static void LocacaoOrdenarDataLoc() {Console.Clear();}
+    public static void LocadorInserir() {Console.Clear();}
+    public static void LocadorListar() {Console.Clear();}
+    public static void LocadorAtualizar() {Console.Clear();}
+    public static void LocadorApagar() {Console.Clear();}
+    public static void LocadorPesquisar() {Console.Clear();}
   }
 }

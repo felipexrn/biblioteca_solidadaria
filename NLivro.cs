@@ -21,6 +21,7 @@ namespace Negocio {
     }
     public static List<Livro> LivroListar() {
       LivroAbrirArquivo();
+      livros.Sort();
       return livros;
     }
     public static Livro LivroListar(int id) {

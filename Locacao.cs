@@ -12,6 +12,8 @@ namespace Modelo {
       DataLocacao = dataLoc;
       IdExemplar = idExemplar;
       IdLocador = idLocador;
+      dataDevolucao = dataLoc;
+      dataDevolucao.AddDays(15); // insere automaticamente a data de devolução para 15 dias após a data de locação;
     }
     public Locacao (DateTime dataLoc, int idExemplar, int idLocador){
       DataLocacao = dataLoc;
