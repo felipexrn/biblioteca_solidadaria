@@ -1,6 +1,7 @@
 using System;
 using Modelo;
 using Negocio;
+//using System.Threading;
 namespace Visao {
   class Biblioteca {
     public static void Main() {
@@ -13,7 +14,9 @@ namespace Visao {
         "Projeto: Implementação de sistema orietado a objetos\n" +
         "Alunos: Elton da Silva e Felipe Xavier\n" +
         "Disponível em: github.com/felipexrn/biblioteca_solidaria\n";
-      //Console.WriteLine(mensagem);
+      /*Console.Clear();
+      Console.WriteLine(mensagem);
+      Thread.Sleep(2000);*/
       Console.Clear();
       int op = Menu(); 
       while(op!=0) {
