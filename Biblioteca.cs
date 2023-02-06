@@ -11,7 +11,7 @@ namespace Visao {
         "IFRN CNAT - Curso de TADS - Disciplina de POO\n" +
         "Professor: Gilbert Silva\n" +
         "Projeto: Implementação de sistema orietado a objetos\n" +
-        "Alunos: Felipe Xavier e Elton da Silva\n" +
+        "Alunos: Elton da Silva e Felipe Xavier\n" +
         "Disponível em: github.com/felipexrn/biblioteca_solidaria\n";
       //Console.WriteLine(mensagem);
       Console.Clear();
