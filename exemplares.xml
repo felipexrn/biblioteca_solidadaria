@@ -15,4 +15,9 @@
     <Alugado>Não</Alugado>
     <IdLivro>13</IdLivro>
   </Exemplar>
+  <Exemplar>
+    <Id>4</Id>
+    <Alugado>Não</Alugado>
+    <IdLivro>16</IdLivro>
+  </Exemplar>
 </ArrayOfExemplar>

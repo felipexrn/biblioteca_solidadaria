@@ -17,6 +17,8 @@ namespace Negocio {
       }
       l.Id = id;
       livros.Add(l);
+      Exemplar exemplar = new Exemplar {Alugado = "Não", IdLivro = l.Id};
+      NExemplar.ExemplarInserir(exemplar);
       LivroSalvarArquivo();
     }
     public static List<Livro> LivroListar() {
@@ -49,7 +51,11 @@ namespace Negocio {
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
-        livros.Remove(obj);
+        if (NExemplar.ExemplarContarIdLivro(obj.Id) == 1) {
+          livros.Remove(obj);
+        } else {
+          throw new ArgumentOutOfRangeException("Existe mais de 1 exemplar deste livro.");
+        }
         LivroSalvarArquivo();
       }
     }

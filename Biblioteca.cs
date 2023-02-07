@@ -297,9 +297,9 @@ namespace Visao {
       Console.Clear();
       if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
       if (ans == "s") {
-        NLivro.LivroExcluir(livro);
-        Console.WriteLine("Livro excluído\n");
-      }
+          NLivro.LivroExcluir(livro);
+          Console.WriteLine("Livro excluído\n");
+        }
     }
     public static void LivroPesquisarTitulo() {
       string t;
