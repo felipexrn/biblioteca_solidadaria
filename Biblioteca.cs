@@ -445,7 +445,11 @@ namespace Visao {
       Exemplar exemplar = NExemplar.ExemplarListar(id);
       exemplar.Alugado = "Não";
       NExemplar.ExemplarAtualizar(exemplar);
-      Console.WriteLine(exemplar + "\n");
+      Console.WriteLine(
+        exemplar + "\n" + 
+        NLivro.LivroListar(exemplar.IdLivro) + "\n" +
+        "\n"
+        );
       Console.WriteLine("Exemplar devolvido\n");
     }
     public static void LocacaoInserir() {
