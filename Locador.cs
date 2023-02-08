@@ -5,7 +5,7 @@ namespace Modelo {
     public string Nome{get;set;}
     public string Telefone{get;set;}
     public Locador (){}
-    public Locador(int id, string n, string t, int idLocacao) {
+    public Locador(int id, string n, string t) {
       Id = id;
       Nome = n;
       Telefone = t;

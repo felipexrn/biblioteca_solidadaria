@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 namespace Modelo {
   public class Locacao: IComparable {
     public int Id {get;set;}
@@ -26,6 +27,13 @@ namespace Modelo {
     public int CompareTo(object obj){
       Locacao l1 = (Locacao) obj;
       return this.dataDevolucao.CompareTo(l1.dataDevolucao);
+    }
+    public class CompDataLoc : IComparer {
+      public int Compare(object obj1, object obj2) {
+        Locacao l1 = (Locacao) obj1;
+        Locacao l2 = (Locacao) obj2;
+        return l1.DataLocacao.CompareTo(l2.DataLocacao);
+      }
     }
   }
 }
