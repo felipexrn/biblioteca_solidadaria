@@ -15,7 +15,7 @@ namespace Modelo {
       IdLivro = idLivro;
     }
     public override string ToString() {
-      return $"Id: {this.Id}\nAlugado: {this.Alugado}\nIdLivro: {this.IdLivro}";  
+      return $"Id Exemplar: {this.Id}\nAlugado: {this.Alugado}\nId Livro: {this.IdLivro}";  
     }
   }
 }

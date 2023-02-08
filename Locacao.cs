@@ -6,27 +6,27 @@ namespace Modelo {
     public DateTime DataLocacao {get;set;}
     public int IdExemplar {get;set;}
     public int IdLocador {get;set;}
-    private DateTime dataDevolucao;
+    public DateTime DataDevolucao {get;set;}
     public Locacao(){}
     public Locacao(int id, DateTime dataLoc, int idExemplar,int idLocador){
       Id = id;
       DataLocacao = dataLoc;
       IdExemplar = idExemplar;
       IdLocador = idLocador;
-      dataDevolucao = dataLoc;
-      dataDevolucao.AddDays(15); // insere automaticamente a data de devolução para 15 dias após a data de locação;
+      DataDevolucao = dataLoc.AddDays(15);
     }
     public Locacao (DateTime dataLoc, int idExemplar, int idLocador){
       DataLocacao = dataLoc;
       IdExemplar = idExemplar;
       IdLocador = idLocador;
+      DataDevolucao = dataLoc.AddDays(15);
     }
     public override string ToString(){
-      return $"Id: {this.Id}\nData de Locacao: {this.DataLocacao}\nId Exemplar: {this.IdExemplar}\nId Locador: {this.IdLocador}\nData de Devolucao: {this.dataDevolucao}";
+      return $"Id Locação: {this.Id}\nData de Locacao: {this.DataLocacao}\nId Exemplar: {this.IdExemplar}\nId Locador: {this.IdLocador}\nData de Devolucao: {this.DataDevolucao}";
     }
     public int CompareTo(object obj){
       Locacao l1 = (Locacao) obj;
-      return this.dataDevolucao.CompareTo(l1.dataDevolucao);
+      return this.DataDevolucao.CompareTo(l1.DataDevolucao);
     }
     public class CompDataLoc : IComparer {
       public int Compare(object obj1, object obj2) {

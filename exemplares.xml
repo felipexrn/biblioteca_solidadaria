@@ -7,7 +7,7 @@
   </Exemplar>
   <Exemplar>
     <Id>2</Id>
-    <Alugado>Não</Alugado>
+    <Alugado>Sim</Alugado>
     <IdLivro>1</IdLivro>
   </Exemplar>
   <Exemplar>
@@ -18,6 +18,6 @@
   <Exemplar>
     <Id>4</Id>
     <Alugado>Não</Alugado>
-    <IdLivro>16</IdLivro>
+    <IdLivro>14</IdLivro>
   </Exemplar>
 </ArrayOfExemplar>

@@ -28,7 +28,7 @@ namespace Modelo {
       Isbn = i;
     }
     public override string ToString() {
-      return $"Id: {this.Id}\nTitulo: {this.Titulo}\nVolume: {this.Volume}\nEdição: {this.Edicao}\nAutor: {this.Autor}\nDescricao: {this.Descricao}\nIsbn: {this.Isbn}";
+      return $"Id Livro: {this.Id}\nTitulo: {this.Titulo}\nVolume: {this.Volume}\nEdição: {this.Edicao}\nAutor: {this.Autor}\nDescricao: {this.Descricao}\nIsbn: {this.Isbn}";
     }
     public int CompareTo(object obj) {
       Livro l2 = (Livro) obj;

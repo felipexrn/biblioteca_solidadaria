@@ -25,31 +25,32 @@ namespace Visao {
             case 1: LivroInserir(); break; // Implementado
             case 2: LivroListar(); break;  // Implementado
             case 3: LivroAtualizar(); break;  // Implementado
-            case 4: LivroApagar(); break;  // Implementado
+            case 4: LivroExcluir(); break;  // Implementado
             case 5: LivroPesquisarTitulo(); break; // Implementado
             case 6: LivroPesquisarAutor(); break; // Implementado
             
             case 7: ExemplarInserir(); break; // Implementado
             case 8: ExemplarListar(); break; // Implementado
             case 9: ExemplarAtualizar(); break; // Implementado
-            case 10: ExemplarApagar(); break; // Implementado
+            case 10: ExemplarExcluir(); break; // Implementado
             case 11: ExemplarDevolver(); break; // Implementado
             
             case 12: LocacaoInserir(); break;
             case 13: LocacaoListar(); break;
             case 14: LocacaoAtualizar(); break;
-            case 15: LocacaoApagar(); break;
+            case 15: LocacaoExcluir(); break;
             case 16: LocacaoOrdenarDataDev(); break;
             case 17: LocacaoOrdenarDataLoc(); break;
             
             case 18: LocadorInserir(); break;
             case 19: LocadorListar(); break;
             case 20: LocadorAtualizar(); break;
-            case 21: LocadorApagar(); break;
+            case 21: LocadorExcluir(); break;
             case 22: LocadorPesquisar(); break;
           }
         }
         catch (Exception erro) {
+          Console.Clear();
           Console.WriteLine(erro.Message + "\n");
         }
         op = Menu();
@@ -281,7 +282,7 @@ namespace Visao {
       NLivro.LivroAtualizar(livro);
       Console.WriteLine("Livro atualizado\n");
     }
-    public static void LivroApagar() {
+    public static void LivroExcluir() {
       Console.Clear();
       Console.WriteLine(
         "------------------\n" +
@@ -364,8 +365,12 @@ namespace Visao {
       Console.Clear();
       
       Exemplar exemplar = new Exemplar {Alugado = a, IdLivro = idLivro};
-      NExemplar.ExemplarInserir(exemplar);
-      Console.WriteLine("Exemplar inserido\n");
+      if (NLivro.LivroExiste(idLivro)) {
+        NExemplar.ExemplarInserir(exemplar);
+        Console.WriteLine("Exemplar inserido\n");
+      } else {
+         throw new ArgumentException("Id de livro não encontrado.");
+      }
     }
     public static void ExemplarListar() {
       Console.Clear();
@@ -404,7 +409,7 @@ namespace Visao {
       NExemplar.ExemplarAtualizar(exemplar);
       Console.WriteLine("Exemplar atualizado\n");
     }
-    public static void ExemplarApagar() {
+    public static void ExemplarExcluir() {
       Console.Clear();
       Console.WriteLine(
         "---------------------\n" +
@@ -441,16 +446,53 @@ namespace Visao {
       NExemplar.ExemplarAtualizar(exemplar);
       Console.WriteLine("Exemplar devolvido\n");
     }
-    public static void LocacaoInserir() {Console.Clear();}
-    public static void LocacaoListar() {Console.Clear();}
-    public static void LocacaoAtualizar() {Console.Clear();}
-    public static void LocacaoApagar() {Console.Clear();}
-    public static void LocacaoOrdenarDataDev() {Console.Clear();}
-    public static void LocacaoOrdenarDataLoc() {Console.Clear();}
+    public static void LocacaoInserir() {
+      Console.Clear();
+      Console.WriteLine(
+        "--------------------\n" +
+        "02 - Inserir locação\n" +
+        "--------------------\n"
+        );
+      DateTime dataLoc = DateTime.Now;
+      Console.WriteLine("Digite o id do exemplar:");
+      int idExemplar = int.Parse(Console.ReadLine());
+      Console.WriteLine("Digite o id do locador:");
+      int idLocador = int.Parse(Console.ReadLine());
+      Locacao locacao = new Locacao(dataLoc, idExemplar, idLocador);
+      NLocacao.LocacaoInserir(locacao);
+      Console.Clear();
+      Console.WriteLine(locacao);
+      Console.WriteLine("Locacao realizada\n");
+      }
+    public static void LocacaoListar() {
+      Console.Clear();
+      Console.WriteLine(
+        "--------------------\n" +
+        "03 - Listar locações\n" +
+        "--------------------\n"
+        );
+      foreach (Locacao locacao in NLocacao.LocacaoListar()) 
+        Console.WriteLine(
+          locacao + "\n" + 
+          NLivro.LivroListar(NExemplar.ExemplarListar(locacao.IdExemplar).IdLivro) + 
+          "\n");  
+      }
+    public static void LocacaoAtualizar() {
+      Console.Clear();
+      }
+    public static void LocacaoExcluir() {
+      Console.Clear();
+      }
+    public static void LocacaoOrdenarDataDev() {
+      Console.Clear();
+      }
+    public static void LocacaoOrdenarDataLoc() {
+      Console.Clear();
+      }
     public static void LocadorInserir() {Console.Clear();}
     public static void LocadorListar() {Console.Clear();}
     public static void LocadorAtualizar() {Console.Clear();}
-    public static void LocadorApagar() {Console.Clear();}
+    public static void LocadorExcluir() {Console.Clear();}
     public static void LocadorPesquisar() {Console.Clear();}
   }
 }

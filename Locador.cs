@@ -15,7 +15,7 @@ namespace Modelo {
       Telefone = t;
     }
     public override string ToString(){
-      return $"Id: {this.Id}\nNome: {this.Nome}\nTelefone: {this.Telefone}";
+      return $"Id Locador: {this.Id}\nNome: {this.Nome}\nTelefone: {this.Telefone}";
     }
     public int CompareTo(object obj){
       Locador l1 = (Locador) obj;

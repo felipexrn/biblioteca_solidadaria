@@ -16,6 +16,7 @@ namespace Negocio {
         id++;
       }
       e.Id = id;
+      
       exemplares.Add(e);
       ExemplarSalvarArquivo();
     }
@@ -83,6 +84,10 @@ namespace Negocio {
     public static int ExemplarContarAlugado(int idLivro) {
       ExemplarAbrirArquivo();
       return exemplares.Count(x => x.IdLivro == idLivro && x.Alugado == "Não");
+    }
+    public static int ExemplarContarAlugado(Exemplar l) {
+      ExemplarAbrirArquivo();
+      return exemplares.Count(x => x.Id == l.Id && x.Alugado == "Não");
     }
   }
 }

@@ -81,13 +81,20 @@ namespace Negocio {
       LivroAbrirArquivo();
       List<Livro> pesquisa = new List<Livro>();
       pesquisa = livros.Where(x => x.Titulo.Contains(titulo) == true).ToList();
+      pesquisa.Sort();
       return pesquisa;
     }
     public static List<Livro> LivroPesquisarAutor(string autor) {
       LivroAbrirArquivo();
       List<Livro> pesquisa = new List<Livro>();
+      CompAutor ca = new CompAutor();
       pesquisa = livros.Where(x => x.Autor.Contains(autor) == true).ToList();
+      //pesquisa.Sort(ca);
       return pesquisa;
+    }
+    public static bool LivroExiste(int idLivro) {
+      LivroAbrirArquivo();
+      return livros.Exists(x => x.Id == idLivro);
     }
   }
 }
