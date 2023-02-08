@@ -12,12 +12,12 @@
   </Exemplar>
   <Exemplar>
     <Id>3</Id>
-    <Alugado>Não</Alugado>
+    <Alugado>Sim</Alugado>
     <IdLivro>13</IdLivro>
   </Exemplar>
   <Exemplar>
     <Id>4</Id>
-    <Alugado>Não</Alugado>
+    <Alugado>Sim</Alugado>
     <IdLivro>14</IdLivro>
   </Exemplar>
 </ArrayOfExemplar>

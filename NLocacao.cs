@@ -19,12 +19,12 @@ namespace Negocio {
       
       Exemplar exemplar = NExemplar.ExemplarListar(l.IdExemplar);
       if (exemplar.Alugado == "Não") {
-        exemplar.Alugado = "Sim";
-        NExemplar.ExemplarAtualizar(exemplar);
-        locacoes.Add(l);
-      } else {
-        throw new ArgumentException("Este exemplar está indisponível.");
-      }
+        if (NExemplar.ExemplarExiste(exemplar.Id)) {
+          exemplar.Alugado = "Sim";
+          NExemplar.ExemplarAtualizar(exemplar);
+          locacoes.Add(l);
+        } else throw new ArgumentException("id inválido");
+      } else throw new ArgumentException("Este exemplar está indisponível.");
       LocacaoSalvarArquivo();
     }
     public static List<Locacao> LocacaoListar() {
@@ -33,6 +33,7 @@ namespace Negocio {
     }
     public static Locacao LocacaoListar(int id) {
       LocacaoAbrirArquivo();
+      locacoes.Sort();
       return locacoes.Where(x => x.Id == id).SingleOrDefault();
     }
     public static void LocacaoAtualizar(Locacao l) {
@@ -44,6 +45,7 @@ namespace Negocio {
         obj.DataLocacao = l.DataLocacao;
         obj.IdExemplar = l.IdExemplar;
         obj.IdLocador = l.IdLocador;
+        obj.DataDevolucao = l.DataDevolucao;
         LocacaoSalvarArquivo();
       }
     }
@@ -54,9 +56,6 @@ namespace Negocio {
         throw new ArgumentOutOfRangeException("id inválido");
       else {
         locacoes.Remove(obj);
-        Exemplar exemplar = NExemplar.ExemplarListar(l.IdExemplar);
-        exemplar.Alugado = "Não";
-        NExemplar.ExemplarAtualizar(exemplar);
       }
       LocacaoSalvarArquivo();
     }
@@ -77,6 +76,30 @@ namespace Negocio {
       StreamWriter stream = new StreamWriter("./locacoes.xml", false);
       xml.Serialize(stream, locacoes);
       stream.Close();
+    }
+    public static void LocacaoOrdenarDataDevCres() {
+      LocacaoAbrirArquivo();
+      locacoes.Sort();
+    }
+    public static void LocacaoOrdenarDataDevDecres() {
+      LocacaoAbrirArquivo();
+      locacoes.Reverse();
+    }
+    public static int LocacaoContarLocadorAlugado(int idLocador) {
+      int qtdLocacoes = 0;
+      List<Locacao> locacoesLocador = locacoes.Where(x => x.IdLocador == idLocador).ToList();
+      List<Exemplar> exemplaresLocador = NExemplar.ExemplarListar();
+      if(locacoesLocador.Count() == 0 || exemplaresLocador.Count() == 0) {
+        return 0;
+      }
+      foreach(Exemplar exemplar in exemplaresLocador) {
+        foreach(Locacao locacao in locacoesLocador) {
+          if(exemplar.Id == locacao.IdExemplar && exemplar.Alugado == "Sim") {
+            qtdLocacoes += 1;
+          }
+        }
+      }
+      return qtdLocacoes;
     }
   }
 }

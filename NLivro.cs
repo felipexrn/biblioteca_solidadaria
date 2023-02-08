@@ -51,10 +51,10 @@ namespace Negocio {
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
-        if (NExemplar.ExemplarContarIdLivro(obj.Id) == 1) {
+        if (NExemplar.ExemplarContarIdLivro(obj.Id) < 2) {
           livros.Remove(obj);
         } else {
-          throw new ArgumentOutOfRangeException("Existe mais de 1 exemplar deste livro.");
+          throw new ArgumentException("Existe mais de 1 exemplar deste livro.");
         }
         LivroSalvarArquivo();
       }

@@ -27,13 +27,4 @@
     <Descricao>Os irmãos Katara e Sokka acordam o jovem Aang de uma longa hibernação e descobrem que ele é um Avatar, com poderes que podem derrotar a Nação do Fogo.</Descricao>
     <Isbn>0123456789876543210</Isbn>
   </Livro>
-  <Livro>
-    <Id>15</Id>
-    <Titulo>0</Titulo>
-    <Volume>0</Volume>
-    <Edicao>0</Edicao>
-    <Autor>0</Autor>
-    <Descricao>0</Descricao>
-    <Isbn>0</Isbn>
-  </Livro>
 </ArrayOfLivro>

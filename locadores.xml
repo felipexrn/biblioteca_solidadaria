@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLocador xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Locador>
+    <Id>1</Id>
+    <Nome>Mara</Nome>
+    <Telefone>84912345678</Telefone>
+  </Locador>
+  <Locador>
+    <Id>2</Id>
+    <Nome>Hugo Pereira</Nome>
+    <Telefone>84987654321</Telefone>
+  </Locador>
+  <Locador>
+    <Id>3</Id>
+    <Nome>Amanda</Nome>
+    <Telefone>6191837645</Telefone>
+  </Locador>
+  <Locador>
+    <Id>4</Id>
+    <Nome>Felipe</Nome>
+    <Telefone>31998347998</Telefone>
+  </Locador>
+</ArrayOfLocador>

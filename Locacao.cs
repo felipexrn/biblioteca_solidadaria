@@ -28,12 +28,5 @@ namespace Modelo {
       Locacao l1 = (Locacao) obj;
       return this.DataDevolucao.CompareTo(l1.DataDevolucao);
     }
-    public class CompDataLoc : IComparer {
-      public int Compare(object obj1, object obj2) {
-        Locacao l1 = (Locacao) obj1;
-        Locacao l2 = (Locacao) obj2;
-        return l1.DataLocacao.CompareTo(l2.DataLocacao);
-      }
-    }
   }
 }

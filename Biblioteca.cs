@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Modelo;
 using Negocio;
 //using System.Threading;
@@ -35,12 +36,12 @@ namespace Visao {
             case 10: ExemplarExcluir(); break; // Implementado
             case 11: ExemplarDevolver(); break; // Implementado
             
-            case 12: LocacaoInserir(); break;
-            case 13: LocacaoListar(); break;
-            case 14: LocacaoAtualizar(); break;
-            case 15: LocacaoExcluir(); break;
-            case 16: LocacaoOrdenarDataDev(); break;
-            case 17: LocacaoOrdenarDataLoc(); break;
+            case 12: LocacaoInserir(); break; // Implementado
+            case 13: LocacaoListar(); break; // Implementado
+            case 14: LocacaoAtualizar(); break; // Implementado
+            case 15: LocacaoExcluir(); break; // Implementado
+            case 16: LocacaoOrdenarDataDevCres(); break; // Implementado
+            case 17: LocacaoOrdenarDataDevDecres(); break; // Implementado
             
             case 18: LocadorInserir(); break;
             case 19: LocadorListar(); break;
@@ -159,8 +160,8 @@ namespace Visao {
         "03 = Listar locação\n" +
         "04 = Atualizar locação\n" +
         "05 = Excluir locação\n" +
-        "06 = Ordenar data devolução\n" +
-        "07 = Ordenar data Locação"
+        "06 = Ordenar data devolução crecente\n" +
+        "07 = Ordenar data devolução decrescente"
         );
         op = int.Parse(Console.ReadLine());
         if (op == 0) return 0;
@@ -236,6 +237,7 @@ namespace Visao {
       
       Livro livro = new Livro {Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
       NLivro.LivroInserir(livro);
+      Console.WriteLine(livro + "\n");
       Console.WriteLine("Livro inserido\n");
     }
     public static void LivroListar() {
@@ -280,6 +282,7 @@ namespace Visao {
       
       Livro livro = new Livro {Id = id, Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
       NLivro.LivroAtualizar(livro);
+      Console.WriteLine(livro + "\n");
       Console.WriteLine("Livro atualizado\n");
     }
     public static void LivroExcluir() {
@@ -291,16 +294,16 @@ namespace Visao {
         );
       Console.WriteLine("Informe o Id do livro a ser excluído");
       int id = int.Parse(Console.ReadLine());
-      Console.WriteLine("Tem certeza que deseja excluir o livro (s/n)?");
       Livro livro = new Livro {Id = id};
-      Console.WriteLine(NLivro.LivroListar(id));
+      Console.WriteLine(NLivro.LivroListar(id) + "\n");
+      Console.WriteLine("Tem certeza que deseja excluir o livro (s/n)?");
       string ans = Console.ReadLine();
       Console.Clear();
       if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
       if (ans == "s") {
-          NLivro.LivroExcluir(livro);
-          Console.WriteLine("Livro excluído\n");
-        }
+        NLivro.LivroExcluir(livro);
+        Console.WriteLine("Livro excluído\n");
+      }
     }
     public static void LivroPesquisarTitulo() {
       string t;
@@ -367,6 +370,7 @@ namespace Visao {
       Exemplar exemplar = new Exemplar {Alugado = a, IdLivro = idLivro};
       if (NLivro.LivroExiste(idLivro)) {
         NExemplar.ExemplarInserir(exemplar);
+        Console.WriteLine(exemplar + "\n");
         Console.WriteLine("Exemplar inserido\n");
       } else {
          throw new ArgumentException("Id de livro não encontrado.");
@@ -407,6 +411,7 @@ namespace Visao {
       
       Exemplar exemplar = new Exemplar {Id = id, Alugado = a, IdLivro = idLivro};
       NExemplar.ExemplarAtualizar(exemplar);
+      Console.WriteLine(exemplar + "\n");
       Console.WriteLine("Exemplar atualizado\n");
     }
     public static void ExemplarExcluir() {
@@ -441,9 +446,10 @@ namespace Visao {
       Console.WriteLine("Digite o id do exemplar:");
       id = int.Parse(Console.ReadLine());
       Console.Clear();
-      
-      Exemplar exemplar = new Exemplar {Id = id, Alugado = "Não"};
+      Exemplar exemplar = NExemplar.ExemplarListar(id);
+      exemplar.Alugado = "Não";
       NExemplar.ExemplarAtualizar(exemplar);
+      Console.WriteLine(exemplar + "\n");
       Console.WriteLine("Exemplar devolvido\n");
     }
     public static void LocacaoInserir() {
@@ -461,9 +467,9 @@ namespace Visao {
       Locacao locacao = new Locacao(dataLoc, idExemplar, idLocador);
       NLocacao.LocacaoInserir(locacao);
       Console.Clear();
-      Console.WriteLine(locacao);
+      Console.WriteLine(locacao + "\n");
       Console.WriteLine("Locacao realizada\n");
-      }
+    }
     public static void LocacaoListar() {
       Console.Clear();
       Console.WriteLine(
@@ -473,26 +479,182 @@ namespace Visao {
         );
       foreach (Locacao locacao in NLocacao.LocacaoListar()) 
         Console.WriteLine(
-          locacao + "\n" + 
-          NLivro.LivroListar(NExemplar.ExemplarListar(locacao.IdExemplar).IdLivro) + 
+          "LOCAÇÃO:" + "\n\n" +
+          locacao + "\n\n" +
+          "LIVRO:" + "\n\n" +
+          NLivro.LivroListar(NExemplar.ExemplarListar(locacao.IdExemplar).IdLivro) + "\n\n" +
+          "EXEMPLAR:" + "\n\n" +
+          NExemplar.ExemplarListar(locacao.IdExemplar) + "\n\n" + 
+          "LOCADOR:" + "\n\n" +
+          NLocador.LocadorListar(locacao.Id) +
           "\n");  
       }
     public static void LocacaoAtualizar() {
       Console.Clear();
+      Console.WriteLine(
+        "----------------------\n" +
+        "02 - Atualizar locação\n" +
+        "----------------------\n"
+        );
+      Console.WriteLine("Digite o id da locação:");
+      int idLocacao = int.Parse(Console.ReadLine());
+      Console.WriteLine("Digite o id do exemplar:");
+      int idExemplar = int.Parse(Console.ReadLine());
+      Console.WriteLine("Digite a data da locação (dd/mm/aaaa):");
+      string dateString = Console.ReadLine();
+      DateTime dataLoc = new DateTime();
+      try {
+        dataLoc = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+      } catch (ArgumentException e) {
+        Console.WriteLine("Formato inválido de data" + e);
+      }
+      Console.WriteLine("Digite o id do locador:");
+      int idLocador = int.Parse(Console.ReadLine());
+      Locacao locacao = new Locacao(idLocacao, dataLoc, idExemplar, idLocador);
+      NLocacao.LocacaoAtualizar(locacao);
+      Console.Clear();
+      Console.WriteLine(locacao + "\n");
+      Console.WriteLine("Locacao atualizada\n");
       }
     public static void LocacaoExcluir() {
       Console.Clear();
-      }
-    public static void LocacaoOrdenarDataDev() {
+      Console.WriteLine(
+        "--------------------\n" +
+        "05 - Excluir locação\n" +
+        "--------------------\n"
+        );
+      Console.WriteLine("Informe o Id da locação a ser excluída");
+      int id = int.Parse(Console.ReadLine());
+      Console.WriteLine(NLocacao.LocacaoListar(id));
+      Console.WriteLine("Tem certeza que deseja excluir esta locação (s/n)?");
+      string ans = Console.ReadLine();
+      Locacao locacao = new Locacao {Id = id};
       Console.Clear();
+      if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
+      if (ans == "s") {
+        NLocacao.LocacaoExcluir(locacao);
+        Console.WriteLine("Locação excluída\n");
+      } else {
+        throw new ArgumentException("Opção inválida");
       }
-    public static void LocacaoOrdenarDataLoc() {
+    }
+    public static void LocacaoOrdenarDataDevCres() {
       Console.Clear();
+      Console.WriteLine(
+        "--------------------------------\n" +
+        "06 - Ordenar locação - crescente\n" +
+        "--------------------------------\n"
+        );
+      Console.WriteLine("Locações ordenadas da mais antiga para mais nova\n");
+      NLocacao.LocacaoOrdenarDataDevCres();
+    }
+    public static void LocacaoOrdenarDataDevDecres() {
+      Console.Clear();
+      Console.WriteLine(
+        "----------------------------------\n" +
+        "07 - Ordenar locação - decrescente\n" +
+        "----------------------------------\n"
+        );
+      Console.WriteLine("Locações ordenadas da mais nova para mais antiga\n");
+      NLocacao.LocacaoOrdenarDataDevDecres();
+    }
+    public static void LocadorInserir() {
+      string n, t;
+      
+      Console.Clear();
+      Console.WriteLine(
+        "----------------------\n" +
+        "02 - Inserir locador(a)\n" +
+        "----------------------\n"
+        );
+      Console.WriteLine("Digite o nome do(a) locador(a):");
+      n = Console.ReadLine();
+      Console.WriteLine("Digite o telefone de contato do(a) locador(a):");
+      t = Console.ReadLine();
+      Console.Clear();
+      
+      Locador locador = new Locador {Nome = n, Telefone = t};
+      NLocador.LocadorInserir(locador);
+      Console.WriteLine(locador + "\n");
+      Console.WriteLine("Locador(a) inserido\n");
+    }
+    public static void LocadorListar() {
+      Console.Clear();
+      Console.WriteLine(
+        "---------------------\n" +
+        "03 - Listar locadores\n" +
+        "---------------------\n"
+        );
+      foreach (Locador locador in NLocador.LocadorListar()) 
+        Console.WriteLine(
+          locador + "\n" +
+          "Qtd exemplares alugados: " +
+          /*(NLocacao.LocacaoContarLocadorAlugado(locador.Id)).ToString() +*/
+          "\n");
       }
-    public static void LocadorInserir() {Console.Clear();}
-    public static void LocadorListar() {Console.Clear();}
-    public static void LocadorAtualizar() {Console.Clear();}
-    public static void LocadorExcluir() {Console.Clear();}
-    public static void LocadorPesquisar() {Console.Clear();}
+    public static void LocadorAtualizar() {
+      int id;
+      string n, t;
+      
+      Console.Clear();
+      Console.WriteLine(
+        "------------------------\n" +
+        "02 - Atualizar locador(a)\n" +
+        "------------------------\n"
+        );
+      Console.WriteLine("Digite o id do(a) locador(a):");
+      id = int.Parse(Console.ReadLine());
+      Console.WriteLine("Digite o nome do(a) locador(a):");
+      n = Console.ReadLine();
+      Console.WriteLine("Digite o telefone de contato do(a) locador(a):");
+      t = Console.ReadLine();
+      Console.Clear();
+      
+      Locador locador = new Locador {Id = id, Nome = n, Telefone = t};
+      NLocador.LocadorAtualizar(locador);
+      Console.WriteLine(locador + "\n");
+      Console.WriteLine("Locador(a) Atualizado(a)\n");
+      }
+    public static void LocadorExcluir() {
+      Console.Clear();
+      Console.WriteLine(
+        "----------------------\n" +
+        "05 - Excluir locador(a)\n" +
+        "----------------------\n"
+        );
+      Console.WriteLine("Informe o Id do(a) locador(a) a ser excluído");
+      int id = int.Parse(Console.ReadLine());
+      Locador locador = new Locador {Id = id};
+      Console.WriteLine(NLocador.LocadorListar(id) + "\n");
+      Console.WriteLine("Tem certeza que deseja excluir o(a) locador(a) (s/n)?");
+      string ans = Console.ReadLine();
+      Console.Clear();
+      if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
+      if (ans == "s") {
+        NLocador.LocadorExcluir(locador);
+        Console.WriteLine("Locador(a) excluído(a)\n");
+      }
+    }
+    public static void LocadorPesquisar() {
+      string n;
+      Console.Clear();
+      Console.WriteLine(
+        "------------------------------\n" +
+        "06 - Pesquisar nome Locador(a)\n" +
+        "------------------------------\n"
+        );
+      Console.WriteLine("Digite o o nome do(a) locador(a):");
+      n = Console.ReadLine();
+      Console.Clear();
+      if (NLocador.LocadorPesquisar(n).Count > 0) {
+        foreach(Locador locador in NLocador.LocadorPesquisar(n)) {
+          Console.WriteLine(
+            locador + "\n" +
+            "Qtd exemplares alugados: " +
+            // implementar 
+            "\n");
+        }
+      } else Console.WriteLine("Nome não encontrado\n");
+    }
   }
 }
