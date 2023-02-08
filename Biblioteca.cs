@@ -2,7 +2,6 @@ using System;
 using System.Globalization;
 using Modelo;
 using Negocio;
-//using System.Threading;
 namespace Visao {
   class Biblioteca {
     public static void Main() {
@@ -15,9 +14,6 @@ namespace Visao {
         "Projeto: Implementação de sistema orietado a objetos\n" +
         "Alunos: Elton da Silva e Felipe Xavier\n" +
         "Disponível em: github.com/felipexrn/biblioteca_solidaria\n";
-      /*Console.Clear();
-      Console.WriteLine(mensagem);
-      Thread.Sleep(2000);*/
       Console.Clear();
       int op = Menu(); 
       while(op!=0) {
@@ -43,12 +39,12 @@ namespace Visao {
             case 16: LocacaoOrdenarDataDevCres(); break; // Implementado
             case 17: LocacaoOrdenarDataDevDecres(); break; // Implementado
             
-            case 18: LocadorInserir(); break;
-            case 19: LocadorListar(); break;
-            case 20: LocadorAtualizar(); break;
-            case 21: LocadorExcluir(); break;
-            case 22: LocadorPesquisar(); break;
-          }
+            case 18: LocadorInserir(); break; // Implementado
+            case 19: LocadorListar(); break; // Implementado
+            case 20: LocadorAtualizar(); break; // Implementado
+            case 21: LocadorExcluir(); break; // Implementado
+            case 22: LocadorPesquisar(); break; // Implementado
+            }
         }
         catch (Exception erro) {
           Console.Clear();
