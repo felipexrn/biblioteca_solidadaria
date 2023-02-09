@@ -12,10 +12,10 @@ namespace Negocio {
       int id;
       if (exemplares.Count == 0) id = 1;
       else {
-        id = exemplares.Max(x => x.Id);
+        id = exemplares.Max(x => x.IdExemplar);
         id++;
       }
-      e.Id = id;
+      e.IdExemplar = id;
       
       exemplares.Add(e);
       ExemplarSalvarArquivo();
@@ -26,11 +26,11 @@ namespace Negocio {
     }
     public static Exemplar ExemplarListar(int id) {
       ExemplarAbrirArquivo();
-      return exemplares.Where(x => x.Id == id).SingleOrDefault();
+      return exemplares.Where(x => x.IdExemplar == id).SingleOrDefault();
     }
     public static void ExemplarAtualizar(Exemplar e) {
       ExemplarAbrirArquivo();
-      Exemplar obj = ExemplarListar(e.Id);
+      Exemplar obj = ExemplarListar(e.IdExemplar);
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
@@ -41,7 +41,7 @@ namespace Negocio {
     }
     public static void ExemplarExcluir(Exemplar e) {
       ExemplarAbrirArquivo();
-      Exemplar obj = ExemplarListar(e.Id);
+      Exemplar obj = ExemplarListar(e.IdExemplar);
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
@@ -77,11 +77,11 @@ namespace Negocio {
     }
     public static int ExemplarContarAlugado(Exemplar l) {
       ExemplarAbrirArquivo();
-      return exemplares.Count(x => x.Id == l.Id && x.Alugado == "Não");
+      return exemplares.Count(x => x.IdExemplar == l.IdExemplar && x.Alugado == "Não");
     }
     public static bool ExemplarExiste(int idExemplar) {
       ExemplarAbrirArquivo();
-      return exemplares.Exists(x => x.Id == idExemplar);
+      return exemplares.Exists(x => x.IdExemplar == idExemplar);
     }
   }
 }

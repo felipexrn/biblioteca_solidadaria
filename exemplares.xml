@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfExemplar xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Exemplar>
-    <Id>1</Id>
+    <IdExemplar>1</IdExemplar>
     <Alugado>Sim</Alugado>
     <IdLivro>1</IdLivro>
   </Exemplar>
   <Exemplar>
-    <Id>2</Id>
+    <IdExemplar>2</IdExemplar>
     <Alugado>Sim</Alugado>
     <IdLivro>1</IdLivro>
   </Exemplar>
   <Exemplar>
-    <Id>3</Id>
+    <IdExemplar>3</IdExemplar>
     <Alugado>Sim</Alugado>
     <IdLivro>13</IdLivro>
   </Exemplar>
   <Exemplar>
-    <Id>4</Id>
+    <IdExemplar>4</IdExemplar>
     <Alugado>Não</Alugado>
     <IdLivro>14</IdLivro>
   </Exemplar>

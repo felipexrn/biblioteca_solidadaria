@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfLivro xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Livro>
-    <Id>1</Id>
+    <IdLivro>1</IdLivro>
     <Titulo>O sono dos justos</Titulo>
     <Volume>Só Deus sabe</Volume>
     <Edicao>-1</Edicao>
@@ -10,7 +10,7 @@
     <Isbn>2012548615168135168</Isbn>
   </Livro>
   <Livro>
-    <Id>13</Id>
+    <IdLivro>13</IdLivro>
     <Titulo>O Senhor dos Anéis</Titulo>
     <Volume>1</Volume>
     <Edicao>2</Edicao>
@@ -19,7 +19,7 @@
     <Isbn>9788845292613</Isbn>
   </Livro>
   <Livro>
-    <Id>14</Id>
+    <IdLivro>14</IdLivro>
     <Titulo>Avatar, A lenda de Aang</Titulo>
     <Volume>Único</Volume>
     <Edicao>5</Edicao>

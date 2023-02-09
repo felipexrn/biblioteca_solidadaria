@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfLocacao xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Locacao>
-    <Id>2</Id>
+    <IdLocacao>2</IdLocacao>
     <DataLocacao>2023-01-05T00:00:00</DataLocacao>
     <IdExemplar>3</IdExemplar>
     <IdLocador>2</IdLocador>
     <DataDevolucao>2023-01-20T00:00:00</DataDevolucao>
   </Locacao>
   <Locacao>
-    <Id>1</Id>
+    <IdLocacao>1</IdLocacao>
     <DataLocacao>2023-02-08T07:24:50.180631+00:00</DataLocacao>
     <IdExemplar>2</IdExemplar>
     <IdLocador>1</IdLocador>
     <DataDevolucao>2023-02-23T07:24:50.180631+00:00</DataDevolucao>
   </Locacao>
   <Locacao>
-    <Id>3</Id>
+    <IdLocacao>3</IdLocacao>
     <DataLocacao>2023-02-08T07:41:58.617227+00:00</DataLocacao>
     <IdExemplar>4</IdExemplar>
     <IdLocador>2</IdLocador>
     <DataDevolucao>2023-02-23T07:41:58.617227+00:00</DataDevolucao>
   </Locacao>
   <Locacao>
-    <Id>4</Id>
+    <IdLocacao>4</IdLocacao>
     <DataLocacao>2022-08-09T00:00:00</DataLocacao>
     <IdExemplar>1</IdExemplar>
     <IdLocador>1</IdLocador>
     <DataDevolucao>2022-08-24T00:00:00</DataDevolucao>
   </Locacao>
   <Locacao>
-    <Id>5</Id>
+    <IdLocacao>5</IdLocacao>
     <DataLocacao>2023-02-08T11:29:01.242253+00:00</DataLocacao>
     <IdExemplar>4</IdExemplar>
     <IdLocador>3</IdLocador>

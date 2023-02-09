@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 namespace Modelo {
   public class Livro : IComparable {
-    public int Id {get; set;} /*implementar*/
+    public int IdLivro {get; set;} /*implementar*/
     public string Titulo {get; set;} /*implementar*/
     public string Volume {get; set;} /*implementar*/
     public string Edicao {get; set;} /*implementar*/
@@ -11,7 +11,7 @@ namespace Modelo {
     public string Isbn {get; set;} /*implementar*/
     public Livro() {}
     public Livro(int id, string t, string v, string e, string a, string d, string i) {
-      Id = id;
+      IdLivro = id;
       Titulo = t;
       Volume = v;
       Edicao = e;
@@ -28,7 +28,7 @@ namespace Modelo {
       Isbn = i;
     }
     public override string ToString() {
-      return $"Id Livro: {this.Id}\nTitulo: {this.Titulo}\nVolume: {this.Volume}\nEdição: {this.Edicao}\nAutor: {this.Autor}\nDescricao: {this.Descricao}\nIsbn: {this.Isbn}";
+      return $"Id Livro: {this.IdLivro}\nTitulo: {this.Titulo}\nVolume: {this.Volume}\nEdição: {this.Edicao}\nAutor: {this.Autor}\nDescricao: {this.Descricao}\nIsbn: {this.Isbn}";
     }
     public int CompareTo(object obj) {
       Livro l2 = (Livro) obj;

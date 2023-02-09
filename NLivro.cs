@@ -12,12 +12,12 @@ namespace Negocio {
       int id;
       if (livros.Count == 0) id = 1;
       else {
-        id = livros.Max(x => x.Id);
+        id = livros.Max(x => x.IdLivro);
         id++;
       }
-      l.Id = id;
+      l.IdLivro = id;
       livros.Add(l);
-      Exemplar exemplar = new Exemplar {Alugado = "Não", IdLivro = l.Id};
+      Exemplar exemplar = new Exemplar {Alugado = "Não", IdLivro = l.IdLivro};
       NExemplar.ExemplarInserir(exemplar);
       LivroSalvarArquivo();
     }
@@ -28,11 +28,11 @@ namespace Negocio {
     }
     public static Livro LivroListar(int id) {
       LivroAbrirArquivo();
-      return livros.Where(x => x.Id == id).SingleOrDefault();
+      return livros.Where(x => x.IdLivro == id).SingleOrDefault();
     }
     public static void LivroAtualizar(Livro l) {
       LivroAbrirArquivo();
-      Livro obj = LivroListar(l.Id);
+      Livro obj = LivroListar(l.IdLivro);
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
@@ -47,11 +47,11 @@ namespace Negocio {
     }
     public static void LivroExcluir(Livro l) {
       LivroAbrirArquivo();
-      Livro obj = LivroListar(l.Id);
+      Livro obj = LivroListar(l.IdLivro);
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
-        if (NExemplar.ExemplarContarIdLivro(obj.Id) < 2) {
+        if (NExemplar.ExemplarContarIdLivro(obj.IdLivro) < 2) {
           livros.Remove(obj);
         } else {
           throw new ArgumentException("Existe mais de 1 exemplar deste livro.");
@@ -94,7 +94,7 @@ namespace Negocio {
     }
     public static bool LivroExiste(int idLivro) {
       LivroAbrirArquivo();
-      return livros.Exists(x => x.Id == idLivro);
+      return livros.Exists(x => x.IdLivro == idLivro);
     }
   }
 }

@@ -1,12 +1,12 @@
 using System;
 namespace Modelo {
   public class Exemplar {
-    public int Id {get; set;} /*implementar*/
+    public int IdExemplar {get; set;} /*implementar*/
     public string Alugado {get; set;} /*implementar*/
     public int IdLivro {get; set;} /*implementar*/
     public Exemplar() {}
     public Exemplar(int id, string a, int idLivro) {
-      Id = id;
+      IdExemplar= id;
       Alugado = a;
       IdLivro = idLivro;
     }
@@ -15,7 +15,7 @@ namespace Modelo {
       IdLivro = idLivro;
     }
     public override string ToString() {
-      return $"Id Exemplar: {this.Id}\nAlugado: {this.Alugado}\nId Livro: {this.IdLivro}";  
+      return $"Id Exemplar: {this.IdExemplar}\nAlugado: {this.Alugado}\nId Livro: {this.IdLivro}";  
     }
   }
 }

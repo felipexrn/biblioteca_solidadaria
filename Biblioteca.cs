@@ -246,8 +246,8 @@ namespace Visao {
       foreach (Livro livro in NLivro.LivroListar()) 
         Console.WriteLine(
           livro + "\n" +
-          "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
-            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() + "\n");  
+          "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.IdLivro).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.IdLivro).ToString() + "\n");  
     }
     public static void LivroAtualizar() {
       
@@ -276,7 +276,7 @@ namespace Visao {
       i = Console.ReadLine();
       Console.Clear();
       
-      Livro livro = new Livro {Id = id, Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
+      Livro livro = new Livro {IdLivro = id, Titulo = t, Volume = v, Edicao = e, Autor = a, Descricao = d, Isbn = i};
       NLivro.LivroAtualizar(livro);
       Console.WriteLine(livro + "\n");
       Console.WriteLine("Livro atualizado\n");
@@ -290,7 +290,7 @@ namespace Visao {
         );
       Console.WriteLine("Informe o Id do livro a ser excluído");
       int id = int.Parse(Console.ReadLine());
-      Livro livro = new Livro {Id = id};
+      Livro livro = new Livro {IdLivro = id};
       Console.WriteLine(NLivro.LivroListar(id) + "\n");
       Console.WriteLine("Tem certeza que deseja excluir o livro (s/n)?");
       string ans = Console.ReadLine();
@@ -316,8 +316,8 @@ namespace Visao {
         foreach(Livro livro in NLivro.LivroPesquisarTitulo(t)) {
           Console.WriteLine(
             livro + "\n" +
-            "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
-            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() +
+            "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.IdLivro).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.IdLivro).ToString() +
             "\n");
         }
       } else Console.WriteLine("Título não encontrado\n");
@@ -338,8 +338,8 @@ namespace Visao {
         foreach(Livro livro in NLivro.LivroPesquisarAutor(a)) {
           Console.WriteLine(
             livro + "\n" +
-            "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.Id).ToString() + "\n" +
-            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.Id).ToString() +
+            "Exemplares: " + NExemplar.ExemplarContarIdLivro(livro.IdLivro).ToString() + "\n" +
+            "Disponíveis: " + NExemplar.ExemplarContarAlugado(livro.IdLivro).ToString() +
             "\n");
         }
       } else Console.WriteLine("Autor não encontrado\n");
@@ -405,7 +405,7 @@ namespace Visao {
       if (ans == "s") a = "Sim";
       Console.Clear();
       
-      Exemplar exemplar = new Exemplar {Id = id, Alugado = a, IdLivro = idLivro};
+      Exemplar exemplar = new Exemplar {IdExemplar = id, Alugado = a, IdLivro = idLivro};
       NExemplar.ExemplarAtualizar(exemplar);
       Console.WriteLine(exemplar + "\n");
       Console.WriteLine("Exemplar atualizado\n");
@@ -420,7 +420,7 @@ namespace Visao {
       Console.WriteLine("Informe o Id do exemplar a ser excluído");
       int id = int.Parse(Console.ReadLine());
       Console.WriteLine("Tem certeza que deseja excluir o exemplar (s/n)?");
-      Exemplar exemplar = new Exemplar {Id = id};
+      Exemplar exemplar = new Exemplar {IdExemplar = id};
       Console.WriteLine(NExemplar.ExemplarListar(id));
       string ans = Console.ReadLine();
       Console.Clear();
@@ -486,7 +486,7 @@ namespace Visao {
           "EXEMPLAR:" + "\n\n" +
           NExemplar.ExemplarListar(locacao.IdExemplar) + "\n\n" + 
           "LOCADOR:" + "\n\n" +
-          NLocador.LocadorListar(locacao.Id) +
+          NLocador.LocadorListar(locacao.IdLocador) +
           "\n");  
       }
     public static void LocacaoAtualizar() {
@@ -528,7 +528,7 @@ namespace Visao {
       Console.WriteLine(NLocacao.LocacaoListar(id));
       Console.WriteLine("Tem certeza que deseja excluir esta locação (s/n)?");
       string ans = Console.ReadLine();
-      Locacao locacao = new Locacao {Id = id};
+      Locacao locacao = new Locacao {IdLocacao = id};
       Console.Clear();
       if (ans == "n") Console.WriteLine("Exclusão cancelada\n");
       if (ans == "s") {
@@ -610,7 +610,7 @@ namespace Visao {
       t = Console.ReadLine();
       Console.Clear();
       
-      Locador locador = new Locador {Id = id, Nome = n, Telefone = t};
+      Locador locador = new Locador {IdLocador = id, Nome = n, Telefone = t};
       NLocador.LocadorAtualizar(locador);
       Console.WriteLine(locador + "\n");
       Console.WriteLine("Locador(a) Atualizado(a)\n");
@@ -624,7 +624,7 @@ namespace Visao {
         );
       Console.WriteLine("Informe o Id do(a) locador(a) a ser excluído");
       int id = int.Parse(Console.ReadLine());
-      Locador locador = new Locador {Id = id};
+      Locador locador = new Locador {IdLocador = id};
       Console.WriteLine(NLocador.LocadorListar(id) + "\n");
       Console.WriteLine("Tem certeza que deseja excluir o(a) locador(a) (s/n)?");
       string ans = Console.ReadLine();

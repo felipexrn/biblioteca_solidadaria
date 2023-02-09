@@ -12,14 +12,14 @@ namespace Negocio {
       int id;
       if (locacoes.Count == 0) id = 1;
       else {
-        id = locacoes.Max(x => x.Id);
+        id = locacoes.Max(x => x.IdLocacao);
         id++;
       }
-      l.Id = id;
+      l.IdLocacao = id;
       
       Exemplar exemplar = NExemplar.ExemplarListar(l.IdExemplar);
       if (exemplar.Alugado == "Não") {
-        if (NExemplar.ExemplarExiste(exemplar.Id)) {
+        if (NExemplar.ExemplarExiste(exemplar.IdExemplar)) {
           exemplar.Alugado = "Sim";
           NExemplar.ExemplarAtualizar(exemplar);
           locacoes.Add(l);
@@ -34,11 +34,11 @@ namespace Negocio {
     public static Locacao LocacaoListar(int id) {
       LocacaoAbrirArquivo();
       locacoes.Sort();
-      return locacoes.Where(x => x.Id == id).SingleOrDefault();
+      return locacoes.Where(x => x.IdLocacao == id).SingleOrDefault();
     }
     public static void LocacaoAtualizar(Locacao l) {
       LocacaoAbrirArquivo();
-      Locacao obj = LocacaoListar(l.Id);
+      Locacao obj = LocacaoListar(l.IdLocacao);
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
@@ -51,7 +51,7 @@ namespace Negocio {
     }
     public static void LocacaoExcluir(Locacao l) {
       LocacaoAbrirArquivo();
-      Locacao obj = LocacaoListar(l.Id);
+      Locacao obj = LocacaoListar(l.IdLocacao);
       if (obj == null) 
         throw new ArgumentOutOfRangeException("id inválido");
       else {
@@ -86,20 +86,10 @@ namespace Negocio {
       locacoes.Reverse();
     }
     public static int LocacaoContarLocadorAlugado(int idLocador) {
-      int qtdLocacoes = 0;
       List<Locacao> locacoesLocador = locacoes.Where(x => x.IdLocador == idLocador).ToList();
       List<Exemplar> exemplaresLocador = NExemplar.ExemplarListar();
-      if(locacoesLocador.Count() == 0 || exemplaresLocador.Count() == 0) {
-        return 0;
-      }
-      foreach(Exemplar exemplar in exemplaresLocador) {
-        foreach(Locacao locacao in locacoesLocador) {
-          if(exemplar.Id == locacao.IdExemplar && exemplar.Alugado == "Sim") {
-            qtdLocacoes += 1;
-          }
-        }
-      }
-      return qtdLocacoes;
+      
+      return 0;
     }
   }
 }
