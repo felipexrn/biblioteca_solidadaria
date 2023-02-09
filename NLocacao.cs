@@ -102,7 +102,7 @@ namespace Negocio {
       
       int qtd = 0;
       Console.WriteLine(query);*/
-      return qtd;
+      return 0;
     }
   }
 }
