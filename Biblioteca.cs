@@ -382,7 +382,7 @@ namespace Visao {
       foreach (Exemplar exemplar in NExemplar.ExemplarListar()) 
         Console.WriteLine(
           exemplar + "\n" + 
-          NLivro.LivroListar(exemplar.IdLivro) + 
+          "Títuo: " + NLivro.LivroListar(exemplar.IdLivro).Titulo + 
           "\n");  
     }
     public static void ExemplarAtualizar() {
@@ -479,14 +479,10 @@ namespace Visao {
         );
       foreach (Locacao locacao in NLocacao.LocacaoListar()) 
         Console.WriteLine(
-          "LOCAÇÃO:" + "\n\n" +
-          locacao + "\n\n" +
-          "LIVRO:" + "\n\n" +
-          NLivro.LivroListar(NExemplar.ExemplarListar(locacao.IdExemplar).IdLivro) + "\n\n" +
-          "EXEMPLAR:" + "\n\n" +
-          NExemplar.ExemplarListar(locacao.IdExemplar) + "\n\n" + 
-          "LOCADOR:" + "\n\n" +
-          NLocador.LocadorListar(locacao.IdLocador) +
+          locacao + "\n" +
+          "Título: " + NLivro.LivroListar(NExemplar.ExemplarListar(locacao.IdExemplar).IdLivro).Titulo + "\n" +
+          "Alugado: " + NExemplar.ExemplarListar(locacao.IdExemplar).Alugado + "\n" + 
+          "Locador(a): " + NLocador.LocadorListar(locacao.IdLocador).Nome +
           "\n");  
       }
     public static void LocacaoAtualizar() {
@@ -587,9 +583,9 @@ namespace Visao {
         );
       foreach (Locador locador in NLocador.LocadorListar()) 
         Console.WriteLine(
-          locador + "\n" +
+          locador + /*"\n" +
           "Qtd exemplares alugados: " +
-          /*(NLocacao.LocacaoContarLocadorAlugado(locador.Id)).ToString() +*/
+          NLocacao.LocacaoContarLocadorAlugado(locador.IdLocador) +*/
           "\n");
       }
     public static void LocadorAtualizar() {

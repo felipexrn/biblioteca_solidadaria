@@ -86,10 +86,23 @@ namespace Negocio {
       locacoes.Reverse();
     }
     public static int LocacaoContarLocadorAlugado(int idLocador) {
-      List<Locacao> locacoesLocador = locacoes.Where(x => x.IdLocador == idLocador).ToList();
-      List<Exemplar> exemplaresLocador = NExemplar.ExemplarListar();
+      List<Locacao> locacoesLocador = new List<Locacao>();
+      locacoesLocador = locacoes;
+      List<Exemplar> exemplaresLocador = new List<Exemplar>();
+      exemplaresLocador = NExemplar.ExemplarListar();
+      /*
+      Object query = 
+        from loc in locacoesLocador
+        join exe in exemplaresLocador
+        on loc.IdExemplar equals exe.IdExemplar
+        select new {
+          locador = loc.IdLocador,
+          alugado = exe.Alugado
+        };
       
-      return 0;
+      int qtd = 0;
+      Console.WriteLine(query);*/
+      return qtd;
     }
   }
 }

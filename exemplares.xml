@@ -17,7 +17,7 @@
   </Exemplar>
   <Exemplar>
     <IdExemplar>4</IdExemplar>
-    <Alugado>Não</Alugado>
+    <Alugado>Sim</Alugado>
     <IdLivro>14</IdLivro>
   </Exemplar>
 </ArrayOfExemplar>
